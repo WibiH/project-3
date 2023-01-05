@@ -3,18 +3,28 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  name: {
-    type: String,
-    trim: true
-  },
-  email: {
+  username: {
     type: String,
     required: true,
-    lowercase: true,
     trim: true
   },
+  profilePicture: {
+    type: String,
+    default: 'pic', 
+    required: true,
+  },
+  pronoun: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: String,
+    required: true,
+    enum: ['user', 'admin']
+  },
   passwordHashAndSalt: {
-    type: String
+    type: String,
+    required: true
   }
 });
 

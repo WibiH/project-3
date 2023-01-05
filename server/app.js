@@ -16,8 +16,8 @@ const authenticationDeserializer = require('./middleware/authentication-deserial
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
 const eventsRouter = require('./routes/event');
-const profileRouter = require('./routes/profile');
-const tourRouter = require('./routes/tour')
+// const profileRouter = require('./routes/profile');
+// const tourRouter = require('./routes/tour')
 
 
 const app = express();
@@ -57,8 +57,8 @@ app.use(authenticationDeserializer);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/events', eventsRouter);
-app.use('/profile', profileRouter);
-app.use('/tour', tourRouter)
+// app.use('/profile', profileRouter);
+// app.use('/tour', tourRouter)
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

@@ -72,3 +72,5 @@ attendenceAdd -> POST /events/:id/attend (?)
 attendenceDelete -> DELETE /events/:Id/attend (?)
 tourMap ->
 mapInfo ->
+
+Hello this is a Test from Wibi: " Hey Queenie!"

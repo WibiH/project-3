@@ -6,8 +6,7 @@ const routeGuardMiddleware = require('../middleware/route-guard');
 const Event = require('../models/event');
 const User = require('../models/user');
 const Attendence = require('./../models/attendence');
-const upload = require('./upload');
-
+// const upload = require('./upload');
 
 // - GET /events/:Id -> Fetch single event
 // - POST /events -> Create event
@@ -19,14 +18,14 @@ const upload = require('./upload');
 
 // - GET /events -> Fetch all events
 eventsRouter.get('/', (req, res, next) => {
-    Event.find()
-    .then((events) => res.json({events}))
+  Event.find()
+    .then((events) => res.json({ events }))
     .catch((error) => next(error));
-})
+});
 
 eventsRouter.get('/:id', (req, res, next) => {
-    const {id} = req.params;
-    
-})
+  const { id } = req.params;
+  Event.findById(id).then((event) => res.json({}));
+});
 
 module.exports = eventsRouter;

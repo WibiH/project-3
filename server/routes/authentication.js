@@ -2,26 +2,26 @@
 
 const { Router } = require('express');
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const User = require('./../models/user');
 const router = new Router();
+const { routeGuard } = require('../middleware/routeGuard');
+const encodeJwt = require('../lib/encode-jwt');
+const saltRounds = 10;
 
 router.post('/sign-up', (req, res, next) => {
   const { name, profilePicture, pronoun, status, email, password } = req.body;
-  bcryptjs
-    .hash(password, 10)
-    .then((hash) => {
-      return User.create({
-        name,
-        profilePicture,
-        pronoun,
-        status,
-        email,
-        passwordHashAndSalt: hash
+  const salt = bcryptjs.genSaltSync(saltRounds);
+  const hashedPassword = bcryptjs.hashSync(password, salt);
+  return User.create({ email, password: hashedPassword, name })
+    .then((createdUser) => {
+      const { email, name, _id } = createdUser;
+      const user = { email, name, _id };
+      const authToken = encodeJwt(user);
+      res.json({
+        user: user,
+        authToken
       });
-    })
-    .then((user) => {
-      req.session.userId = user._id;
-      res.json({ user });
     })
     .catch((error) => {
       next(error);

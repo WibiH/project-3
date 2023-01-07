@@ -13,7 +13,14 @@ router.post('/sign-up', (req, res, next) => {
   const { name, profilePicture, pronoun, status, email, password } = req.body;
   const salt = bcryptjs.genSaltSync(saltRounds);
   const hashedPassword = bcryptjs.hashSync(password, salt);
-  return User.create({ email, password: hashedPassword, name })
+  return User.create({
+    email,
+    password: hashedPassword,
+    name,
+    profilePicture,
+    pronoun,
+    status
+  })
     .then((createdUser) => {
       const { email, name, _id } = createdUser;
       const user = { email, name, _id };
@@ -56,6 +63,13 @@ router.post('/login', (req, res, next) => {
 router.post('/sign-out', (req, res, next) => {
   req.session.destroy();
   res.json({});
+});
+
+router.get('/verify', routeGuard, (req, res, next) => {
+  const { _id, email, name } = req.payload;
+  const user = { _id, email, name };
+  const authToken = encodeJwt(user);
+  res.json({ user, authToken });
 });
 
 router.get('/me', (req, res, next) => {

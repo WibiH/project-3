@@ -15,6 +15,7 @@ router.post('/sign-up', (req, res, next) => {
         profilePicture,
         pronoun,
         status,
+        email,
         passwordHashAndSalt: hash
       });
     })

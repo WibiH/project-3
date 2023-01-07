@@ -3,15 +3,15 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: true,
     trim: true
   },
   profilePicture: {
     type: String,
-    default: 'pic', 
-    required: true,
+    default: 'pic',
+    required: true
   },
   pronoun: {
     type: String,
@@ -23,7 +23,13 @@ const schema = new mongoose.Schema({
     required: true,
     enum: ['user', 'admin']
   },
-  passwordHashAndSalt: {
+  email: {
+    type: String,
+    required: true,
+    lowercase: true,
+    trim: true
+  },
+  password: {
     type: String,
     required: true
   }

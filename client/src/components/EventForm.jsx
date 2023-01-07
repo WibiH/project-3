@@ -1,7 +1,41 @@
 import React from "react";
 
-const EventForm = () => {
-  return <div>EventForm</div>;
+const EventForm = ({ event, onEventChange, onEventSubmit }) => {
+    const handleEventFormSubmission = (event) => {
+        event.preventDefault();
+        onQuoteSubmit();
+      };
+    
+      return (
+        <form onSubmit={handleQuoteFormSubmission} className='flex flex-col'>
+          <label htmlFor='message'>Quote</label>
+          <input
+            type='text'
+            name='message'
+            id='message'
+            onChange={(event) =>
+              onQuoteChange({
+                ...quote,
+                message: event.target.value
+              })
+            }
+            value={quote.message}
+          />
+          <label htmlFor='author'>Author</label>
+          <input
+            type='text'
+            name='author'
+            id='author'
+            onChange={(event) =>
+              onQuoteChange({
+                ...quote,
+                author: event.target.value
+              })
+            }
+            value={quote.author}
+          />
+          <button className='btn-primary'>Submit quote</button>
+        </form>
 };
 
 export default EventForm;

@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../context/authentication";
 
 const Navbar = () => {
+  const { user, setUser, eraseToken } = useAuthContext();
+
+  const handleSignOut = () => {
+    setUser(null);
+    eraseToken();
+  };
   return (
     <nav className="w-full bg-gray-100">
       <ul className="flex flex-col p-4 md:flex-row">
@@ -14,15 +21,23 @@ const Navbar = () => {
         <li className="pr-3">
           <Link to="/tour">Tour</Link>
         </li>
-        <li className="pr-3">
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li className="pr-3">
-          <Link to="/login">Login</Link>
-        </li>
-        <li className="pr-3">
-          <Link to="/signup">Signup</Link>
-        </li>
+        {(user && (
+          <>
+            <li className="pr-3">
+              <span>{user.name}</span>
+            </li>
+            <button onClick={handleSignOut}>Sign Out</button>
+          </>
+        )) || (
+          <>
+            <li className="pr-3">
+              <Link to="/login">Log In</Link>
+            </li>
+            <li className="pr-3">
+              <Link to="/sign-up">Sign Up</Link>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

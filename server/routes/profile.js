@@ -7,7 +7,7 @@ const express = require('express');
 const { routeGuard } = require('./../middleware/routeGuard');
 const profileRouter = express.Router();
 
-// GET - /events/:Id/going - List users attendences
+// GET - List users attendences
 profileRouter.get('/', routeGuard, (req, res, next) => {
   Event.find({ user: req.user._id })
     .populate('event')

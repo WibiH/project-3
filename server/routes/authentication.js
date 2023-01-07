@@ -1,63 +1,64 @@
 'use strict';
 
-const express = require('express');
-const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const User = require('../models/user');
-const { routeGuard } = require('../middleware/routeGuard');
-const saltRounds = 10;
+const { Router } = require('express');
+const bcryptjs = require('bcryptjs');
+const User = require('./../models/user');
+const router = new Router();
 
 router.post('/sign-up', (req, res, next) => {
   const { name, profilePicture, pronoun, status, email, password } = req.body;
-  User.findOne({ email })
+  bcryptjs
+    .hash(password, 10)
+    .then((hash) => {
+      return User.create({
+        name,
+        profilePicture,
+        pronoun,
+        status,
+        passwordHashAndSalt: hash
+      });
+    })
     .then((user) => {
-      if (user) {
-        res.status(400).json({ message: 'This user already exist' });
-      }
-      const salt = bcrypt.genSaltSync(saltRounds);
-      const hashedPassword = bcrypt.hashSync(password, salt);
-      return User.create({ email, password: hashedPassword, name });
+      req.session.userId = user._id;
+      res.json({ user });
     })
-    .then((createdUser) => {
-      const { email, name, _id } = createdUser;
-      const user = { email, name, _id };
-      res.json({ user: user });
-    })
-    .catch((err) => next(err));
+    .catch((error) => {
+      next(error);
+    });
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/sign-in', (req, res, next) => {
+  let user;
   const { email, password } = req.body;
   User.findOne({ email })
-    .then((user) => {
-      if (!user) {
-        res.status(401).json({ message: 'invalid credentials.' });
-      }
-      const passwordCorrect = bcrypt.compareSync(password, user.password);
-      if (passwordCorrect) {
-        const { _id, email, name } = user;
-        const payload = { _id, email, name };
-        const authToken = jwt.sign(payload, process.env.TOKEN_SECRET, {
-          algorithm: 'HS256',
-          expiresIn: '6h'
-        });
-        res.json({ authToken: authToken });
+    .then((document) => {
+      if (!document) {
+        return Promise.reject(new Error("There's no user with that email."));
       } else {
-        res.status(401).json({ message: 'invalid credentials.' });
+        user = document;
+        return bcryptjs.compare(password, user.passwordHashAndSalt);
       }
     })
-    .catch((err) => next(err));
+    .then((result) => {
+      if (result) {
+        req.session.userId = user._id;
+        res.json({ user });
+      } else {
+        return Promise.reject(new Error('Wrong password.'));
+      }
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
-router.get('/verify', routeGuard, (req, res, next) => {
-  console.log(req.payload);
-  res.json(req.payload);
-});
-
-router.post('/logout', (req, res, next) => {
+router.post('/sign-out', (req, res, next) => {
   req.session.destroy();
   res.json({});
+});
+
+router.get('/me', (req, res, next) => {
+  res.json({ user: req.user });
 });
 
 module.exports = router;

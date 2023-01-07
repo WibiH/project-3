@@ -28,7 +28,7 @@ router.post('/sign-up', (req, res, next) => {
     });
 });
 
-router.post('/sign-in', (req, res, next) => {
+router.post('/login', (req, res, next) => {
   let user;
   const { email, password } = req.body;
   User.findOne({ email })

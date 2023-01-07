@@ -4,6 +4,9 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import EventDisplayAll from "./pages/EventDisplayAllPage";
 import HomePage from "./pages/HomePage";
+import Profile from "./pages/ProfilePage";
+import SignUp from "./pages/SignUpPage";
+import LogIn from "./pages/LogInPage";
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
       <Routes>
         <Route path="/home" element={<HomePage />} />
         <Route path="/events" element={<EventDisplayAll />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<LogIn />} />
       </Routes>
     </div>
   );

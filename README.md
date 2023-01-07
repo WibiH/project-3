@@ -55,6 +55,8 @@ Attendance
 - EventEditDeletePage => Display a form to edit or delete event
 - TourPage => 1/ Google API with pin to show the tour locations 2/ Click on the pin will show different related info on the side (Map Component => Boolean & Information Component) (Brandon)
 - Profile => 1/ User info 2/ Event that user attending (Wibi)
+- SignUpPage => Shows form for user sign up (Wibi)
+- LogInPage => Shows form for user login (Wibi)
 
 ### Components
 

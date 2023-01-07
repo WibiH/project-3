@@ -2,7 +2,7 @@ import api from "./api";
 
 export const login = (email, password) =>
   api
-    .post("/authentication/login", { email, password })
+    .post("/authentication/sign-in", { email, password })
     .then((response) => response.data);
 
 export const signup = (

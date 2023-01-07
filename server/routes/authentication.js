@@ -5,7 +5,7 @@ const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./../models/user');
 const router = new Router();
-const { routeGuard } = require('../middleware/routeGuard');
+const routeGuard = require('../middleware/routeGuard');
 const encodeJwt = require('../lib/encode-jwt');
 const saltRounds = 10;
 

@@ -18,4 +18,4 @@ function getTokenFromHeaders(req) {
   return null;
 }
 
-module.exports = { routeGuard };
+module.exports = routeGuard;

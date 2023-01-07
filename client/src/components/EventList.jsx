@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { eventNames } from "../../../server/models/event";
 
 const EventList = ({ events }) => {
   return (
@@ -29,3 +28,15 @@ export default EventList;
 // picture
 // location
 // dateTime
+
+// "eventName": "Test Title",
+// "description": "Test description",
+// "createdUser": "",
+// "dateTime":
+
+// "name": "Tuffy",
+//   "profilePicture": "",
+//   "pronoun": "he/him/his",
+//   "status": "user",
+//   "email":"tuffy@gmail.com",
+//   "password": "123"

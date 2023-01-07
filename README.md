@@ -48,13 +48,13 @@ Attendance
 
 ### Pages
 
-HomePage => Introduction & some of event
-EventDisplayAllPage => Should display all events (Q)
-EventDisplaySinglePage => 1/ Should display a specific event 2/ attendance 3/ “Edit or Delete” Button (3/ allow comment 4 / edit comment 5/ delete comment) (Q)
-EventCreatePage => Display a form to create event
-EventEditDeletePage => Display a form to edit or delete event
-TourPage => 1/ Google API with pin to show the tour locations 2/ Click on the pin will show different related info on the side (Map Component => Boolean & Information Component) (Brandon)
-Profile => 1/ User info 2/ Event that user attending (Wibi)
+- HomePage => Introduction & some of event
+- EventDisplayAllPage => Should display all events (Q)
+- EventDisplaySinglePage => 1/ Should display a specific event 2/ attendance 3/ “Edit or Delete” Button (3/ allow comment 4 / edit comment 5/ delete comment) (Q)
+- EventCreatePage => Display a form to create event
+- EventEditDeletePage => Display a form to edit or delete event
+- TourPage => 1/ Google API with pin to show the tour locations 2/ Click on the pin will show different related info on the side (Map Component => Boolean & Information Component) (Brandon)
+- Profile => 1/ User info 2/ Event that user attending (Wibi)
 
 ### Components
 

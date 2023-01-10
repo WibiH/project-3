@@ -30,8 +30,8 @@ const EventCreatePage = () => {
     <div>
       <EventForm
         event={event}
-        oneventChange={setEvent}
-        oneventSubmit={handleEventCreation}
+        onEventChange={setEvent}
+        onEventSubmit={handleEventCreation}
       />
     </div>
   );

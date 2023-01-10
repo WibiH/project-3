@@ -6,6 +6,9 @@ export const eventLoadRandom = () =>
 export const eventLoadAll = () =>
   api.get("/events").then((response) => response.data);
 
+export const eventLoadSingle = (id) =>
+  api.get(`/events/${id}`).then((response) => response.data);
+
 export const eventAdd = (event, storedToken) =>
   api
     .post("/events", event, {

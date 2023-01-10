@@ -27,7 +27,7 @@ const EventCreatePage = () => {
   };
 
   return (
-    <div>
+    <div className="p-5">
       <EventForm
         event={event}
         onEventChange={setEvent}

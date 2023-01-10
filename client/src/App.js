@@ -8,6 +8,7 @@ import Profile from "./pages/ProfilePage";
 import SignUp from "./pages/SignUpPage";
 import LogIn from "./pages/LogInPage";
 import { AuthProviderWrapper } from "./context/authentication";
+import EventCreatePage from "./pages/EventCreatePage";
 
 function App() {
   return (
@@ -17,6 +18,15 @@ function App() {
         <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/events" element={<EventDisplayAll />} />
+          <Route
+            path="/events/create"
+            element={
+              <EventCreatePage />
+              // (user && <EventCreatePage />) || (
+              //   <AuthenticationRequiredErrorPage />
+              // )
+            }
+          />
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />

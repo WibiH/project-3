@@ -21,6 +21,9 @@ const Navbar = () => {
         <li className="pr-3">
           <Link to="/tour">Tour</Link>
         </li>
+        <li className="pr-3">
+          <Link to="/events/create">Create Events</Link>
+        </li>
         {(user && (
           <>
             <li className="pr-3">

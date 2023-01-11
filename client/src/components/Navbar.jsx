@@ -24,6 +24,15 @@ const Navbar = () => {
         <li className="pr-3">
           <Link to="/profile">Profile</Link>
         </li>
+        <li className="pr-3">
+          <Link to="/events/create">Create Events</Link>
+        </li>
+        <li className="pr-3">
+          <Link to="/events/:id/edit">Edit Events</Link>
+        </li>
+        <li className="pr-3">
+          <Link to="/events/:id">Single Events</Link>
+        </li>
         {(user && (
           <>
             <li className="pr-3">

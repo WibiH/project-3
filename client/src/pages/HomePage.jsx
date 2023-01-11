@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import EventCard from "../components/EventCard";
 
 const HomePage = () => {
-  //   const [event, setEvent] = useState(null);
+  const [event, setEvent] = useState(null);
 
-  //   useEffect(() => {
-  //     eventLoadRandom().then((data) => setEvent(data.event));
-  //   }, []);
+  useEffect(() => {
+    eventLoadRandom().then((data) => setEvent(data.event));
+  }, []);
 
   return (
     <div>

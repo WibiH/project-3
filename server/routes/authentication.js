@@ -9,10 +9,11 @@ const routeGuard = require('../middleware/routeGuard');
 const encodeJwt = require('../lib/encode-jwt');
 const saltRounds = 10;
 
-router.post('/sign-up', (req, res, next) => {
+router.post('/signup', (req, res, next) => {
   const { name, profilePicture, pronoun, status, email, password } = req.body;
   const salt = bcryptjs.genSaltSync(saltRounds);
   const hashedPassword = bcryptjs.hashSync(password, salt);
+  console.log('This is the req.body', req.body);
   return User.create({
     email,
     password: hashedPassword,
@@ -22,6 +23,7 @@ router.post('/sign-up', (req, res, next) => {
     status
   })
     .then((createdUser) => {
+      console.log('This is the createdUser', createdUser);
       const { email, name, _id } = createdUser;
       const user = { email, name, _id };
       const authToken = encodeJwt(user);
@@ -31,6 +33,7 @@ router.post('/sign-up', (req, res, next) => {
       });
     })
     .catch((error) => {
+      console.log('This is the error', error);
       next(error);
     });
 });
@@ -38,6 +41,7 @@ router.post('/sign-up', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   let user;
   const { email, password } = req.body;
+  console.log('This is the req.body', req.body);
   User.findOne({ email })
     .then((document) => {
       if (!document) {
@@ -48,6 +52,7 @@ router.post('/login', (req, res, next) => {
       }
     })
     .then((result) => {
+      console.log('This is the RESULT', result);
       if (result) {
         req.session.userId = user._id;
         res.json({ user });
@@ -56,11 +61,12 @@ router.post('/login', (req, res, next) => {
       }
     })
     .catch((error) => {
+      console.log('This is the ERROR', error);
       next(error);
     });
 });
 
-router.post('/sign-out', (req, res, next) => {
+router.post('/logout', (req, res, next) => {
   req.session.destroy();
   res.json({});
 });

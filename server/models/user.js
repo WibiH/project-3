@@ -16,7 +16,7 @@ const schema = new mongoose.Schema({
   pronoun: {
     type: String,
     required: true,
-    enum: ['he/him/his', 'she/her/hers', 'they/them/their', 'others']
+    enum: ['he/him/his', 'she/her/hers', 'they/them/their', 'other']
   },
   status: {
     type: String,

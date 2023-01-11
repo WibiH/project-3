@@ -2,7 +2,7 @@ import api from "./api";
 
 export const login = (email, password) =>
   api
-    .post("/authentication/sign-in", { email, password })
+    .post("/authentication/login", { email, password })
     .then((response) => response.data);
 
 export const signup = (
@@ -14,7 +14,7 @@ export const signup = (
   password
 ) =>
   api
-    .post("/authentication/sign-up", {
+    .post("/authentication/signup", {
       name,
       profilePicture,
       pronoun,

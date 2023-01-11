@@ -1,35 +1,39 @@
-import React from "react";
+import React, { useMemo } from "react";
+// import Select from "react-select";
+// import countryList from "react-select-country-list";
 
 const EventForm = ({ event, onEventChange, onEventSubmit }) => {
-  const handleEventFormSubmission = (event) => {
-    event.preventDefault();
+  const handleEventFormSubmission = (e) => {
+    e.preventDefault();
     onEventSubmit();
   };
 
+  // const options = useMemo(() => countryList().getData(), []);
+
   return (
     <form onSubmit={handleEventFormSubmission} className="flex flex-col">
-      <label htmlFor="eventNames">Event Name</label>
+      <label htmlFor="eventName">Event Name</label>
       <input
         type="text"
-        name="eventNames"
-        id="eventNames"
-        onChange={(event) =>
+        name="eventName"
+        id="eventName"
+        onChange={(e) =>
           onEventChange({
             ...event,
-            eventNames: event.target.value,
+            eventName: e.target.value,
           })
         }
-        value={event.eventNames}
+        value={event.eventName}
       />
 
       <label htmlFor="description">Description</label>
       <textarea
         name="description"
         id="description"
-        onChange={(event) =>
+        onChange={(e) =>
           onEventChange({
             ...event,
-            description: event.target.value,
+            description: e.target.value,
           })
         }
         value={event.description}
@@ -44,37 +48,50 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         type="text"
         name="location"
         id="location"
-        onChange={(event) =>
+        onChange={(e) =>
           onEventChange({
             ...event,
-            location: event.target.value,
+            location: e.target.value,
           })
         }
         value={event.location}
       />
+
+      {/* <Select
+        options={options}
+        name="location"
+        id="location"
+        value={event.location}
+        onChange={(e) =>
+          onEventChange({
+            ...event,
+            location: e.target.value,
+          })
+        }
+      /> */}
 
       <label htmlFor="dateTime">Event Date and Time</label>
       <input
         type="datetime-local"
         name="dateTime"
         id="dateTime"
-        onChange={(event) =>
+        onChange={(e) =>
           onEventChange({
             ...event,
-            dateTime: event.target.value,
+            dateTime: e.target.value,
           })
         }
         value={event.dateTime}
       />
 
-      <button className="btn-primary">Submit quote</button>
+      <button className="btn-primary">Create event</button>
     </form>
   );
 };
 
 export default EventForm;
 
-// eventNames
+// eventName
 // description
 // createdUser
 // picture

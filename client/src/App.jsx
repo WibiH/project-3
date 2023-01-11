@@ -7,12 +7,15 @@ import Profile from "./pages/ProfilePage";
 import SignUp from "./pages/SignUpPage";
 import LogIn from "./pages/LogInPage";
 import { AuthProviderWrapper } from "./context/authentication";
+// import { useAuthContext } from "./context/authentication";
 import EventCreatePage from "./pages/EventCreatePage";
 import EventEditDeletePage from "./pages/EventEditDeletePage";
 import EventDisplaySinglePage from "./pages/EventEditDeletePage";
 import EventDisplayAllPage from "./pages/EventDisplayAllPage";
 
 function App() {
+  // const { user } = useAuthContext();
+
   return (
     <div className="App">
       <AuthProviderWrapper>
@@ -24,7 +27,9 @@ function App() {
             path="/events/create"
             element={
               <EventCreatePage />
-              // (user && <EventCreatePage />) || (
+              // <EventCreatePage user={user} />
+              // user && <EventCreatePage />
+              // || (
               //   <AuthenticationRequiredErrorPage />
               // )
             }

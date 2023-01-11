@@ -19,7 +19,6 @@ const eventsRouter = require('./routes/event');
 // const profileRouter = require('./routes/profile');
 // const tourRouter = require('./routes/tour')
 
-
 const app = express();
 
 app.use(serveFavicon(path.join(__dirname, 'public/images', 'favicon.ico')));
@@ -69,6 +68,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({ type: 'error', error: { message: error.message } });
+  console.log(error);
 });
 
 const { NODE_ENV, PORT, MONGODB_URI } = process.env;

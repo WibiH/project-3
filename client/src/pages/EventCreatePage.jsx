@@ -4,23 +4,24 @@ import { eventAdd } from "../services/event";
 import EventForm from "../components/EventForm";
 import { useAuthContext } from "../context/authentication";
 
-const EventCreatePage = () => {
+const EventCreatePage = ({ user }) => {
   const initialEvent = {
-    eventNames: "",
+    eventName: "",
     description: "",
     createdUser: "",
+    // createdUser: { user },
     picture: null,
     location: "",
     dateTime: "",
   };
-  const [event, setEvent] = useState(initialEvent);
+  const [eventData, setEvent] = useState(initialEvent);
 
   const navigate = useNavigate();
 
   const { authToken } = useAuthContext();
 
   const handleEventCreation = () => {
-    eventAdd(event, authToken).then((data) => {
+    eventAdd(eventData, authToken).then((data) => {
       const id = data.event._id;
       navigate(`/events/${id}`);
     });
@@ -29,7 +30,7 @@ const EventCreatePage = () => {
   return (
     <div className="p-5">
       <EventForm
-        event={event}
+        event={eventData}
         onEventChange={setEvent}
         onEventSubmit={handleEventCreation}
       />

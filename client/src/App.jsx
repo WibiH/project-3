@@ -34,7 +34,6 @@ function App() {
               // )
             }
           />
-          <Route path="/quotes/:id" element={<EventDisplaySinglePage />} />
 
           <Route
             path="/events/:id/edit"
@@ -45,6 +44,8 @@ function App() {
               // )
             }
           />
+          <Route path="/events/:id" element={<EventDisplaySinglePage />} />
+
           <Route path="/profile" element={<Profile />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />

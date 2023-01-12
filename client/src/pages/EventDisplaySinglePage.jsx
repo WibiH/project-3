@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import EventContent from "../components/EventContent";
 import { useParams, Link } from "react-router-dom";
-import { eventLoadSingle } from "../services/quotes";
+import { eventLoadSingle } from "../services/event";
 import { useAuthContext } from "../context/authentication";
 
 const EventDisplaySinglePage = () => {

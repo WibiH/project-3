@@ -21,12 +21,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.6.5",
     "morgan": "^1.10.0",
-<<<<<<< HEAD
-    "react-router-dom": "^6.6.2",
-    "react-select-country-list": "^2.2.3",
-=======
     "react-router-dom": "^6.6.1",
->>>>>>> e03d556 (creating .env file and copying encode-jwt.js file)
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

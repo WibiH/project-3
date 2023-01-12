@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import EventContent from "../components/EventContent";
 import { useParams, Link } from "react-router-dom";
-import { eventLoadSingle } from "../services/quotes";
+import { eventLoadSingle } from "../services/event";
 import { useAuthContext } from "../context/authentication";
 
 const EventDisplaySinglePage = () => {
@@ -17,13 +17,14 @@ const EventDisplaySinglePage = () => {
 
   return (
     <div className="flex flex-col space-x-12">
-      {event && <EventContent event={event} />}
+      {console.log(event)}
+      {/* {event && <EventContent event={event} />}
       <div className="">
         {user && (
           <Link className="btn-primary" to={`/events/${id}/edit`}>
             Edit and Delete
           </Link>
-        )}
+        )} */}
       </div>
     </div>
   );

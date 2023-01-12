@@ -4,7 +4,6 @@ const express = require('express');
 const routeGuard = require('../middleware/routeGuard');
 const eventsRouter = express.Router();
 const Event = require('../models/event');
-const Attendance = require('./../models/attendance');
 // const upload = require('./upload');
 
 // - GET /events -> Fetch all events
@@ -46,7 +45,6 @@ eventsRouter.post('/', routeGuard, (req, res, next) => {
     dateTime
   })
     .then((event) => res.json({ event }))
-    .then(() => res.redirect('/'))
     .catch((error) => next(error));
 });
 
@@ -70,36 +68,6 @@ eventsRouter.delete('/:id', routeGuard, (req, res, next) => {
   Event.findByIdAndDelete(id)
     .then(() => res.json({ success: true }))
     .catch((error) => next(error));
-});
-
-// - POST /events/:Id/going -> Create the attendance
-eventsRouter.post('/:id/going', routeGuard, (req, res, next) => {
-  const { id } = req.params;
-  Attendance.create({
-    joiningUser: req.user._id,
-    joiningEvent: id
-  })
-    .then((attend) => {
-      res.json({ attend });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-
-// - DELETE /events/:Id/notgoing -> Delete the attendance
-eventsRouter.post('/:id/notgoing', routeGuard, (req, res, next) => {
-  const { id } = req.params;
-  Attendance.findOneAndDelete({
-    joiningUser: req.user._id,
-    joiningEvent: id
-  })
-    .then((attend) => {
-      res.json({ attend });
-    })
-    .catch((error) => {
-      next(error);
-    });
 });
 
 module.exports = eventsRouter;

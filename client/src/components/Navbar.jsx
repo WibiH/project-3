@@ -22,9 +22,6 @@ const Navbar = () => {
           <Link to="/tour">Tour</Link>
         </li>
         <li className="pr-3">
-          <Link to="/profile">Profile</Link>
-        </li>
-        <li className="pr-3">
           <Link to="/events/create">Create Events</Link>
         </li>
         <li className="pr-3">
@@ -36,7 +33,10 @@ const Navbar = () => {
         {(user && (
           <>
             <li className="pr-3">
-              <span>{user.name}</span>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li className="pr-3">
+              <span>{user.name}</span>{" "}
             </li>
             <button onClick={handleSignOut}>Sign Out</button>
           </>

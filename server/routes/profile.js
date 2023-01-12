@@ -1,25 +1,38 @@
-// GET /profile -> Display user info and the events they are going to attend
-
 'use strict';
 
-const Event = require('../models/event');
+const Attendance = require('../models/attendance');
 const express = require('express');
 const { routeGuard } = require('./../middleware/routeGuard');
 const profileRouter = express.Router();
 
-// GET - List users attendences
+// GET - List users attendances
 profileRouter.get('/', routeGuard, (req, res, next) => {
-  Event.find({ user: req.user._id })
-    .populate('event')
-    .then((attendences) => {
-      console.log('attendences', { attendences });
-      const newAttendence = attendences.map((element) => {
-        element.event.attendence = true;
+  Attendance.find({ attendingUser: req.user._id })
+    .populate('Event')
+    .then((attendances) => {
+      console.log('attendances', { attendances });
+      res.json({ attendances });
+    })
+    .catch((error) => {
+      console.log('This is the ERROR', error);
+      next(error);
+    });
+});
+
+/*
+profileRouter.get('/', routeGuard, (req, res, next) => {
+  Attendance.find({ attendingUser: req.user._id })
+    .populate('Event')
+    .then((attendances) => {
+      console.log('attendances', { attendances });
+      const newAttendance = attendances.map((element) => {
+        element.event.attendance = true;
         return element;
       });
-      res.json({ attendences });
+      res.json({ attendances });
     })
     .catch((error) => {
       next(error);
     });
 });
+*/

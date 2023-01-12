@@ -4,7 +4,7 @@ const express = require('express');
 const routeGuard = require('../middleware/routeGuard');
 const eventsRouter = express.Router();
 const Event = require('../models/event');
-const Attendence = require('./../models/attendence');
+// const Attendance = require('./../models/attendance');
 // const upload = require('./upload');
 
 // - GET /events -> Fetch all events

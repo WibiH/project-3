@@ -1,9 +1,8 @@
 'use strict';
 
-
 const mongoose = require('mongoose');
 
-const attendenceSchema = new mongoose.Schema(
+const attendanceSchema = new mongoose.Schema(
   {
     attendingUser: {
       type: mongoose.Schema.Types.ObjectId,
@@ -21,6 +20,6 @@ const attendenceSchema = new mongoose.Schema(
   }
 );
 
-const Attendence = mongoose.model('Attendence', attendenceSchema);
+const Attendance = mongoose.model('attendance', attendanceSchema);
 
-module.exports = Attendence;
+module.exports = Attendance;

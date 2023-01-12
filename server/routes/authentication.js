@@ -41,14 +41,14 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   let user;
   const { email, password } = req.body;
-  console.log('This is the req.body', req.body);
+  console.log('This is the REQ.BODY', req.body);
   User.findOne({ email })
     .then((document) => {
       if (!document) {
         return Promise.reject(new Error("There's no user with that email."));
       } else {
         user = document;
-        return bcryptjs.compare(password, user.passwordHashAndSalt);
+        return bcryptjs.compare(password, user.password);
       }
     })
     .then((result) => {
@@ -76,10 +76,6 @@ router.get('/verify', routeGuard, (req, res, next) => {
   const user = { _id, email, name };
   const authToken = encodeJwt(user);
   res.json({ user, authToken });
-});
-
-router.get('/me', (req, res, next) => {
-  res.json({ user: req.user });
 });
 
 module.exports = router;

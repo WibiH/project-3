@@ -6,7 +6,7 @@ import { signup } from "../services/authentication";
 const SignUp = (props) => {
   const [name, setName] = useState("");
   const [profilePicture, setProfilePicture] = useState("");
-  const [pronoun, setPronoun] = useState("");
+  const [pronoun, setPronoun] = useState("he/him/his");
   const [status, setStatus] = useState("user");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

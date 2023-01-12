@@ -68,6 +68,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({ type: 'error', error: { message: error.message } });
+  console.log(error);
 });
 
 const { NODE_ENV, PORT, MONGODB_URI } = process.env;

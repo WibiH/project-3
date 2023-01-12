@@ -35,17 +35,18 @@ eventsRouter.get('/:id', (req, res, next) => {
 
 // - POST - /events - Creates a new events
 eventsRouter.post('/', routeGuard, (req, res, next) => {
-  const { eventName, description, createdUser, picture, location, dateTime } =
-    req.body;
+  const { eventName, description, picture, location, dateTime } = req.body;
+  console.log(`Show req.user - ${req.user._id}`);
   Event.create({
     eventName,
     description,
-    createdUser,
+    createdUser: req.user._id,
     picture,
     location,
     dateTime
   })
     .then((event) => res.json({ event }))
+    .then(() => res.redirect('/'))
     .catch((error) => next(error));
 });
 

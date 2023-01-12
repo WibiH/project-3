@@ -10,7 +10,7 @@ import { AuthProviderWrapper } from "./context/authentication";
 // import { useAuthContext } from "./context/authentication";
 import EventCreatePage from "./pages/EventCreatePage";
 import EventEditDeletePage from "./pages/EventEditDeletePage";
-import EventDisplaySinglePage from "./pages/EventEditDeletePage";
+import EventDisplaySinglePage from "./pages/EventDisplaySinglePage";
 import EventDisplayAllPage from "./pages/EventDisplayAllPage";
 import Tour from "./pages/Tour";
 

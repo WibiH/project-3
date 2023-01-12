@@ -27,6 +27,7 @@ eventsRouter.get('/random', (req, res, next) => {
 // - GET /events/:Id -> Fetch single event
 eventsRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
+  console.log(id);
   Event.findById(id)
     .then((event) => res.json({ event }))
     .catch((error) => next(error));

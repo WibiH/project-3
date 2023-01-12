@@ -72,6 +72,7 @@ router.post('/logout', routeGuard, (req, res, next) => {
 });
 
 router.get('/verify', routeGuard, (req, res, next) => {
+  console.log(req.payload);
   const { _id, email, name } = req.payload;
   const user = { _id, email, name };
   const authToken = encodeJwt(user);

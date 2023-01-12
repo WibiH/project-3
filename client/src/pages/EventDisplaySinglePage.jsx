@@ -12,7 +12,10 @@ const EventDisplaySinglePage = () => {
   const { user } = useAuthContext();
 
   useEffect(() => {
-    eventLoadSingle(id).then((data) => setEvent(data.event));
+    eventLoadSingle(id).then((data) => {
+      setEvent(data.event);
+      console.log(data.event);
+    });
   }, [id]);
 
   console.log(event);

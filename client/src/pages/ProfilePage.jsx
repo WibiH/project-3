@@ -4,16 +4,21 @@ import { attendanceLoadAll } from "../services/attendances";
 import UserAttendedEvents from "../components/UserAttendedEvents";
 
 const Profile = () => {
+  /*
   const [attendances, setAttendances] = useState([]);
   useEffect(() => {
     attendanceLoadAll().then((data) => setAttendances(data.attendances));
   });
+  */
 
-  return (
+  return;
+  <div>Profile</div>;
+  /*(
     <div>
       <UserAttendedEvents attendances={attendances} />
     </div>
-  );
+   
+  ); */
 };
 
 export default Profile;

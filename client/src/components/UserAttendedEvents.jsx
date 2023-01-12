@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AttendanceList = ({ attendances }) => {
+const UserAttendedEvents = ({ attendances }) => {
   return (
     //Here could be the Event-component (EventList line9-16)
     <div>
@@ -21,4 +21,4 @@ const AttendanceList = ({ attendances }) => {
   );
 };
 
-export default AttendanceList;
+export default UserAttendedEvents;

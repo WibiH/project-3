@@ -4,7 +4,7 @@ const express = require('express');
 const routeGuard = require('../middleware/routeGuard');
 const eventsRouter = express.Router();
 const Event = require('../models/event');
-// const Attendance = require('./../models/attendance');
+const Attendance = require('./../models/attendance');
 // const upload = require('./upload');
 
 // - GET /events -> Fetch all events
@@ -75,7 +75,7 @@ eventsRouter.delete('/:id', routeGuard, (req, res, next) => {
 // - POST /events/:Id/going -> Create the attendance
 eventsRouter.post('/:id/going', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  Attendence.create({
+  Attendance.create({
     joiningUser: req.user._id,
     joiningEvent: id
   })
@@ -90,7 +90,7 @@ eventsRouter.post('/:id/going', routeGuard, (req, res, next) => {
 // - DELETE /events/:Id/notgoing -> Delete the attendance
 eventsRouter.post('/:id/notgoing', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  Attendence.findOneAndDelete({
+  Attendance.findOneAndDelete({
     joiningUser: req.user._id,
     joiningEvent: id
   })

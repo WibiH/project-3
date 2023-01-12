@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { attendanceLoadAll } from "../services/attendances";
-import AttendanceList from "../components/AttendanceList";
+import UserAttendedEvents from "../components/UserAttendedEvents";
 
 const Profile = () => {
   const [attendances, setAttendances] = useState([]);
@@ -11,7 +11,7 @@ const Profile = () => {
 
   return (
     <div>
-      <AttendanceList attendances={attendances} />
+      <UserAttendedEvents attendances={attendances} />
     </div>
   );
 };

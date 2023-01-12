@@ -1,5 +1,4 @@
 'use strict';
-
 const Attendance = require('../models/attendance');
 const express = require('express');
 const { routeGuard } = require('./../middleware/routeGuard');
@@ -18,21 +17,3 @@ profileRouter.get('/', routeGuard, (req, res, next) => {
       next(error);
     });
 });
-
-/*
-profileRouter.get('/', routeGuard, (req, res, next) => {
-  Attendance.find({ attendingUser: req.user._id })
-    .populate('Event')
-    .then((attendances) => {
-      console.log('attendances', { attendances });
-      const newAttendance = attendances.map((element) => {
-        element.event.attendance = true;
-        return element;
-      });
-      res.json({ attendances });
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
-*/

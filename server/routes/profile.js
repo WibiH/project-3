@@ -1,15 +1,15 @@
 'use strict';
-const Attendance = require('../models/attendance');
 const express = require('express');
-const { routeGuard } = require('./../middleware/routeGuard');
+const routeGuard = require('./../middleware/routeGuard');
 const profileRouter = express.Router();
+const Attendance = require('../models/attendance');
 
-// GET - List users attendances
+// GET - User info and the events they marked to attend
 profileRouter.get('/', routeGuard, (req, res, next) => {
   Attendance.find({ attendingUser: req.user._id })
-    .populate('Event')
+    .populate('attendingEvent')
     .then((attendances) => {
-      console.log('attendances', { attendances });
+      console.log('attendance', { attendances });
       res.json({ attendances });
     })
     .catch((error) => {
@@ -17,3 +17,5 @@ profileRouter.get('/', routeGuard, (req, res, next) => {
       next(error);
     });
 });
+
+module.exports = profileRouter;

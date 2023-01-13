@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import Profile from "./pages/ProfilePage";
-import SignUp from "./pages/SignUpPage";
-import LogIn from "./pages/LogInPage";
+import ProfilePage from "./pages/ProfilePage";
+import SignUpPage from "./pages/SignUpPage";
+import LogInPage from "./pages/LogInPage";
 import { AuthProviderWrapper } from "./context/authentication";
 // import { useAuthContext } from "./context/authentication";
 import EventCreatePage from "./pages/EventCreatePage";
@@ -47,9 +47,9 @@ function App() {
           />
           <Route path="/events/:id" element={<EventDisplaySinglePage />} />
 
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/login" element={<LogInPage />} />
           <Route path="/tour" element={<Tour />} />
         </Routes>
       </AuthProviderWrapper>

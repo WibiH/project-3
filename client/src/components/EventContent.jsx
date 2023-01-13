@@ -12,7 +12,7 @@ const EventContent = ({ event }) => {
           <h3>
             {event.location} {event.dateTime}
           </h3>
-          <h5>{event.createdUser}</h5>
+          <h5>{event.createdUser.name}</h5>
           <p>{event.description}</p>
         </div>
       )}

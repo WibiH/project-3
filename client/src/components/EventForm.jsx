@@ -83,8 +83,7 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         }
         value={event.dateTime}
       />
-
-      <button className="btn-primary">Create event</button>
+      <button className="btn-primary">Submit event</button>
     </form>
   );
 };

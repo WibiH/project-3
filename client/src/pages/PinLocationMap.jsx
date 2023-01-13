@@ -26,6 +26,7 @@ const Brandenburger = {
   lat: 52.51771278205263,
   lng: 13.377366123173758,
 };
+let changer = false;
 
 const PinLocationMap = () => {
   const [info, setInfo] = useState({
@@ -35,13 +36,38 @@ const PinLocationMap = () => {
     location: "",
     dateTime: "",
   });
-  const handleClickPin = () => {
+  const handleClickPinBrandenburger = () => {
+    changer = true;
     setInfo({
-      eventName: "Branderburger",
+      eventName: "Branderburger Event ",
       description: "some description",
       createdUser: "brandon",
       location: "berlin-brandergurger",
       dateTime: "21-12-1999",
+    });
+  };
+
+  const handleClickPinNöldnerplatz = () => {
+    changer = true;
+
+    setInfo({
+      eventName: "Nöldnerplatz Event",
+      description: "Nöldnerplatz description",
+      createdUser: "Stuart",
+      location: "berlin-Nöldnerplatz",
+      dateTime: "today",
+    });
+  };
+
+  const handleClickPinTempelhofeR = () => {
+    changer = true;
+
+    setInfo({
+      eventName: "TempelhofeR Event",
+      description: "TempelhofeR description",
+      createdUser: "Alcalde",
+      location: "berlin-TempelhofeR",
+      dateTime: "tomorrow",
     });
   };
 
@@ -51,36 +77,47 @@ const PinLocationMap = () => {
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
           {/* Child components, such as markers, info windows, etc. */}
 
-          <MarkerF position={Nöldnerplatz} label="Nöldnerplatz" />
-          <MarkerF position={TempelhofeR} label="TempelhofeR" />
+          <MarkerF
+            position={Nöldnerplatz}
+            label="Nöldnerplatz"
+            onClick={handleClickPinNöldnerplatz}
+          />
+          <MarkerF
+            position={TempelhofeR}
+            label="TempelhofeR"
+            onClick={handleClickPinTempelhofeR}
+          />
           <MarkerF
             position={Brandenburger}
-            cursor="Brandenburger"
-            onClick={handleClickPin}
+            label="Brandenburger"
+            onClick={handleClickPinBrandenburger}
           />
         </GoogleMap>
       </LoadScript>
-
-      <h1>
-        {" "}
-        <strong>Event Name:</strong> {info.eventName}
-      </h1>
-      <h3>
-        {" "}
-        <strong>Description:</strong> {info.description}
-      </h3>
-      <h3>
-        {" "}
-        <strong>Created by: </strong> {info.createdUser}
-      </h3>
-      <h3>
-        {" "}
-        <strong>Address: </strong> {info.location}
-      </h3>
-      <h4>
-        {" "}
-        <strong>Date and Time: </strong> {info.dateTime}
-      </h4>
+      {changer && (
+        <>
+          <h1>
+            {" "}
+            <strong>Event Name:</strong> {info.eventName}
+          </h1>
+          <h3>
+            {" "}
+            <strong>Description:</strong> {info.description}
+          </h3>
+          <h3>
+            {" "}
+            <strong>Created by: </strong> {info.createdUser}
+          </h3>
+          <h3>
+            {" "}
+            <strong>Address: </strong> {info.location}
+          </h3>
+          <h4>
+            {" "}
+            <strong>Date and Time: </strong> {info.dateTime}
+          </h4>{" "}
+        </>
+      )}
     </>
   );
 };

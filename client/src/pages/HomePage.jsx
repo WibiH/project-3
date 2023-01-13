@@ -1,18 +1,19 @@
 import React from "react";
-import { eventLoadRandom } from "../services/event";
+import { eventLoadAll } from "../services/event";
 import { useEffect, useState } from "react";
 import EventCard from "../components/EventCard";
 
 const HomePage = () => {
-  const [event, setEvent] = useState(null);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    eventLoadRandom().then((data) => setEvent(data.event));
-  }, []);
+    eventLoadAll().then((data) => setEvents(data.events));
+  });
 
   return (
     <div>
       HomePage
+      <EventCard events={events} />
       {/* {event && event.length >= 3 ? (
         <div>
           <EventCard event={event} /> <EventCard event={event} />

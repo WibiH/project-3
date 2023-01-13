@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AttendanceButton from "../components/AttendanceButton";
 
 const UserAttendedEvents = ({ attendances }) => {
   return (
@@ -14,6 +15,7 @@ const UserAttendedEvents = ({ attendances }) => {
               </h3>
               <h6>{eachEvent.createdUser}</h6>
             </Link>
+            <AttendanceButton />
           </div>
         );
       })}

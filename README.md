@@ -66,8 +66,8 @@ Attendance
 - EventForm => It’s going to be used to create or update a event
 - EventButton => It’s going to be used to delete a event
 - SingleEventContent => It’s going to be used to render single event (Q)
-- AttendanceButton => It’s going to be used to delete a event
-- AttendanceList => It’s going to be used to render user who attendance (pic + username)
+- AttendanceButton => It’s going to be used to delete a event (Wibi)
+- AttendanceList => It’s going to be used to render user who attendance (pic + username)(Wibi)
 - TourMap => It’s going to call for the API and with pin added on it (Brandon)
 - MapInfo => It’s going to render corresponding information for each pin onClick (Brandon)
 - Profile => It’s going to render user info (Wibi)
@@ -81,7 +81,7 @@ Attendance
 - eventAdd -> POST /events
 - eventEdit -> PATCH /events/:Id
 - eventDelete -> DELETE /events/:Id
-- attendenceAdd -> POST /events/:id/attend (?)
-- attendenceDelete -> DELETE /events/:Id/attend (?)
+- attendenceAdd -> POST /events/:id/attend (Wibi)
+- attendenceDelete -> DELETE /events/:Id/attend (Wibi)
 - tourMap ->
 - mapInfo ->

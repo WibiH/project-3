@@ -10,8 +10,7 @@ const schema = new mongoose.Schema({
   },
   profilePicture: {
     type: String,
-    default: 'pic',
-    required: true
+    default: '/client/public/Profil.gif'
   },
   pronoun: {
     type: String,

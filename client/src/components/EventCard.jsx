@@ -1,30 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EventCard = ({ event }) => {
-  const {
-    id,
-    eventNames,
-    description,
-    createdUser,
-    picture,
-    location,
-    dateTime,
-  } = event;
-
-  return (
-    <div key={id}>
-      <Link to={`/events/${id}`}>
-        <div>
+const EventCard = ({ events }) => {
+  events.map((eachEvent) => {
+    return (
+      <div key={eachEvent._id}>
+        <Link to={`/events/${eachEvent._id}`}>
           <h3>
-            {eventNames} - {dateTime}
+            {eachEvent.eventName} - {eachEvent.dateTime}
           </h3>
-          <h6>{createdUser}</h6>
-          <p>{description}</p>
-        </div>
-      </Link>
-    </div>
-  );
+          <h6>{eachEvent.createdUser.name}</h6>
+        </Link>
+      </div>
+    );
+  });
 };
 
 export default EventCard;

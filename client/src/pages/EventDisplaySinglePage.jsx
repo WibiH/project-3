@@ -21,16 +21,17 @@ const EventDisplaySinglePage = () => {
   console.log(event);
 
   return (
-    <div className="flex flex-col space-x-12">
-      <EventContent event={event} />
-      {/* {event && <EventContent event={event} />}
+    <div className="flex flex-col space-x-12 p-5">
+      {/* <EventContent event={event} /> */}
+      {event && <EventContent event={event} />}
+
       <div className="">
         {user && (
           <Link className="btn-primary" to={`/events/${id}/edit`}>
             Edit and Delete
           </Link>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

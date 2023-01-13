@@ -5,15 +5,15 @@ import EventList from "../components/EventList";
 
 const EventDisplayAllPage = () => {
   const [events, setEvents] = useState([]);
+
   useEffect(() => {
     eventLoadAll().then((data) => setEvents(data.events));
   });
 
-  // {data: events: [{message: '', author, ''}, ...]}
   return (
     <div>
       <h1>Event List</h1>
-      {/* <EventList events={events} /> */}
+      {events && <EventList events={events} />}
     </div>
   );
 };

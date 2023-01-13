@@ -25,7 +25,7 @@ const EventEditDeletePage = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="p-5">
       <h1>Edit event</h1>
       {event && (
         <EventForm

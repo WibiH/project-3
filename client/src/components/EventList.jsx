@@ -9,9 +9,9 @@ const EventList = ({ events }) => {
           <div key={eachEvent._id}>
             <Link to={`/events/${eachEvent._id}`}>
               <h3>
-                {eachEvent.eventNames} - {eachEvent.dateTime}
+                {eachEvent.eventName} - {eachEvent.dateTime}
               </h3>
-              <h6>{eachEvent.createdUser}</h6>
+              <h6>{eachEvent.createdUser.name}</h6>
             </Link>
           </div>
         );
@@ -22,7 +22,7 @@ const EventList = ({ events }) => {
 
 export default EventList;
 
-// eventNames
+// eventName
 // description
 // createdUser
 // picture

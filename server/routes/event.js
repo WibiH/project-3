@@ -31,7 +31,10 @@ eventsRouter.get('/:id', (req, res, next) => {
   console.log(id);
   Event.findById(id)
     .populate('createdUser')
-    .then((event) => res.json({ event }))
+    .then((event) => {
+      console.log(event.createdUser);
+      res.json({ event });
+    })
     .catch((error) => next(error));
 });
 

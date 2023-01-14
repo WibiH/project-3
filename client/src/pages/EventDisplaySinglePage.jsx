@@ -18,7 +18,7 @@ const EventDisplaySinglePage = () => {
     });
   }, [id]);
 
-  console.log(event);
+  // console.log(event);
 
   return (
     <div className="flex flex-col space-x-12 p-5">
@@ -26,7 +26,8 @@ const EventDisplaySinglePage = () => {
       {event && <EventContent event={event} />}
 
       <div className="">
-        {user && (
+        {console.log(event)}
+        {event && (
           <Link className="btn-primary" to={`/events/${id}/edit`}>
             Edit and Delete
           </Link>

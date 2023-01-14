@@ -13,9 +13,9 @@ const HomePage = () => {
   return (
     <div>
       HomePage
-      {events.map((event) => {
+      {events.map((event, index) => {
         return (
-          <div key={event._id}>
+          <div key={index}>
             <EventCard event={event} />
           </div>
         );

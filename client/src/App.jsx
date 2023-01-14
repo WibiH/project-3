@@ -38,7 +38,8 @@ function App() {
         <Route
           path="/events/:id/edit"
           element={
-            <EventEditDeletePage />
+            // <EventEditDeletePage />
+            user && <EventEditDeletePage />
             // (user && <EventEditDeletePage />) || (
             //   <AuthenticationRequiredErrorPage />
             // )

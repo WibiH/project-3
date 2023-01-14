@@ -8,10 +8,12 @@ const EventList = ({ events }) => {
         return (
           <div key={eachEvent._id}>
             <Link to={`/events/${eachEvent._id}`}>
+              <h1>{eachEvent.eventName}</h1>
+              <h3>Date: {eachEvent.dateTime.split("T")[0].toString()}</h3>
               <h3>
-                {eachEvent.eventName} - {eachEvent.dateTime}
+                Time: {eachEvent.dateTime.split("T")[1].split(":", 2).join(":")}
               </h3>
-              <h6>{eachEvent.createdUser.name}</h6>
+              <h6>Host: {eachEvent.createdUser.name}</h6>
             </Link>
           </div>
         );

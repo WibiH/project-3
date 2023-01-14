@@ -17,7 +17,7 @@ const GermanHistoricalMuseum = {
   lng: 13.396979255025004,
 };
 
-const TempelhofeR = {
+const BerlinStateOpera = {
   lat: 52.47441848155095,
   lng: 13.400455473251355,
 };
@@ -37,18 +37,28 @@ const PinLocationMap = () => {
     dateTime: "",
   });
 
-  const handleClickPinNöldnerplatz = () => {
+  const handleClickPinGermanMuseum = () => {
     changer = true;
 
     setInfo({
       eventName: "German Historical Museum",
       description:
         "The section at the Deutsches Historisches Museum focuses on watershed moments in gay liberation within the German state, specifically focusing on section 175 of the German penal code, which was in effect from 1872 to 1994 and made “homosexual acts” between men punishable by law.",
-      createdUser: "Working on it",
+      createdUser: "Admin user",
       location: "Unter den Linden 7, 10117 Berlin, Alemania",
-      dateTime: "today",
     });
   };
+
+  const handleClickPinBerlinStateOpera = () => {
+    changer = true;
+
+    setInfo({
+      eventName: "Berlin State Opera",
+      description:
+        "The section at the Deutsches Historisches Museum focuses on watershed moments in gay liberation within the German state, specifically focusing on section 175 of the German penal code, which was in effect from 1872 to 1994 and made “homosexual acts” between men punishable by law.",
+      createdUser: "Admin user",
+      location: "Unter den Linden 7, 10117 Berlin, Alemania",
+  }
 
   return (
     <>
@@ -61,7 +71,12 @@ const PinLocationMap = () => {
 
           <MarkerF
             position={GermanHistoricalMuseum}
-            onClick={handleClickPinNöldnerplatz}
+            onClick={handleClickPinGermanMuseum}
+          />
+
+<MarkerF
+            position={BerlinStateOpera}
+            onClick={handleClickPinBerlinStateOpera}
           />
         </GoogleMap>
       </LoadScript>
@@ -83,10 +98,6 @@ const PinLocationMap = () => {
             {" "}
             <strong>Address: </strong> {info.location}
           </h3>
-          <h4>
-            {" "}
-            <strong>Date and Time: </strong> {info.dateTime}
-          </h4>{" "}
         </>
       )}
     </>

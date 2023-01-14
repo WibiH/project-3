@@ -6,6 +6,7 @@ const Attendance = require('../models/attendance');
 
 // GET - User info and the events they marked to attend
 profileRouter.get('/', routeGuard, (req, res, next) => {
+  console.log('USER OBJECT', req.user._id);
   Attendance.find({ attendingUser: req.user._id })
     .populate('attendingEvent')
     .then((attendances) => {

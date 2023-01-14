@@ -36,16 +36,6 @@ const PinLocationMap = () => {
     location: "",
     dateTime: "",
   });
-  const handleClickPinBrandenburger = () => {
-    changer = true;
-    setInfo({
-      eventName: "Branderburger Event ",
-      description: "some description",
-      createdUser: "brandon",
-      location: "berlin-brandergurger",
-      dateTime: "21-12-1999",
-    });
-  };
 
   const handleClickPinNöldnerplatz = () => {
     changer = true;
@@ -56,18 +46,6 @@ const PinLocationMap = () => {
       createdUser: "Stuart",
       location: "berlin-Nöldnerplatz",
       dateTime: "today",
-    });
-  };
-
-  const handleClickPinTempelhofeR = () => {
-    changer = true;
-
-    setInfo({
-      eventName: "TempelhofeR Event",
-      description: "TempelhofeR description",
-      createdUser: "Alcalde",
-      location: "berlin-TempelhofeR",
-      dateTime: "tomorrow",
     });
   };
 
@@ -90,7 +68,7 @@ const PinLocationMap = () => {
         <>
           <h1>
             {" "}
-            <strong>Event Name:</strong> {info.eventName}
+            <strong>Place Name:</strong> {info.eventName}
           </h1>
           <h3>
             {" "}

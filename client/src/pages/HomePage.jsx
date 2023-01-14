@@ -8,12 +8,18 @@ const HomePage = () => {
 
   useEffect(() => {
     eventLoadAll().then((data) => setEvents(data.events));
-  });
+  }, []);
 
   return (
     <div>
       HomePage
-      <EventCard events={events} />
+      {events.map((event) => {
+        return (
+          <div key={event._id}>
+            <EventCard event={event} />
+          </div>
+        );
+      })}
       {/* {event && event.length >= 3 ? (
         <div>
           <EventCard event={event} /> <EventCard event={event} />

@@ -8,7 +8,7 @@ const EventDisplayAllPage = () => {
 
   useEffect(() => {
     eventLoadAll().then((data) => setEvents(data.events));
-  });
+  }, []);
 
   return (
     <div>

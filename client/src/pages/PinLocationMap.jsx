@@ -41,10 +41,11 @@ const PinLocationMap = () => {
     changer = true;
 
     setInfo({
-      eventName: "GermanHistoricalMuseum",
-      description: "Nöldnerplatz description",
-      createdUser: "Stuart",
-      location: "berlin-Nöldnerplatz",
+      eventName: "German Historical Museum",
+      description:
+        "The section at the Deutsches Historisches Museum focuses on watershed moments in gay liberation within the German state, specifically focusing on section 175 of the German penal code, which was in effect from 1872 to 1994 and made “homosexual acts” between men punishable by law.",
+      createdUser: "Working on it",
+      location: "Unter den Linden 7, 10117 Berlin, Alemania",
       dateTime: "today",
     });
   };

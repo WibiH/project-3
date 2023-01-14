@@ -26,9 +26,9 @@ function App() {
         <Route
           path="/events/create"
           element={
-            <EventCreatePage />
+            // <EventCreatePage />
             // <EventCreatePage user={user} />
-            // user && <EventCreatePage />
+            user && <EventCreatePage />
             // || (
             //   <AuthenticationRequiredErrorPage />
             // )

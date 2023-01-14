@@ -28,7 +28,7 @@ const Navbar = () => {
               <Link to="/events/create">Create Events</Link>
             </li>
             <li className="pr-3">
-              <Link to="/profile">{user.name}´s Profile</Link>
+              <Link to={`/profile/${user._id}`}>{user.name}´s Profile</Link>
             </li>
             <button onClick={handleSignOut}>Sign Out</button>
           </>

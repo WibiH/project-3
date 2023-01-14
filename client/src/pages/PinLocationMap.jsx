@@ -3,7 +3,7 @@ import { MarkerF } from "@react-google-maps/api";
 import { useState } from "react";
 
 const containerStyle = {
-  width: "400px",
+  width: "90%",
   height: "400px",
 };
 
@@ -73,7 +73,10 @@ const PinLocationMap = () => {
 
   return (
     <>
-      <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+      <LoadScript
+        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
+        id="map"
+      >
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
           {/* Child components, such as markers, info windows, etc. */}
 

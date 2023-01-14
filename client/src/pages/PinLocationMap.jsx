@@ -49,16 +49,7 @@ const PinLocationMap = () => {
     });
   };
 
-  const handleClickPinBerlinStateOpera = () => {
-    changer = true;
-
-    setInfo({
-      eventName: "Berlin State Opera",
-      description:
-        "The section at the Deutsches Historisches Museum focuses on watershed moments in gay liberation within the German state, specifically focusing on section 175 of the German penal code, which was in effect from 1872 to 1994 and made “homosexual acts” between men punishable by law.",
-      createdUser: "Admin user",
-      location: "Unter den Linden 7, 10117 Berlin, Alemania",
-  }
+  const handleClickPinBerlinStateOpera = () => {};
 
   return (
     <>
@@ -74,7 +65,7 @@ const PinLocationMap = () => {
             onClick={handleClickPinGermanMuseum}
           />
 
-<MarkerF
+          <MarkerF
             position={BerlinStateOpera}
             onClick={handleClickPinBerlinStateOpera}
           />

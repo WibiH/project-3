@@ -11,7 +11,7 @@ const Profile = () => {
   });
   return (
     <div>
-      <ProfileComponent />
+      {/* <ProfileComponent /> */}
       <h1>Your favorite events</h1>
       <UserAttendedEvents attendances={attendances} />
     </div>

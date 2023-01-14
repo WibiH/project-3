@@ -9,6 +9,7 @@ const Event = require('../models/event');
 // - GET /events -> Fetch all events
 eventsRouter.get('/', (req, res, next) => {
   Event.find()
+    .populate('createdUser')
     .then((events) => res.json({ events }))
     .catch((error) => next(error));
 });
@@ -29,6 +30,7 @@ eventsRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   console.log(id);
   Event.findById(id)
+    .populate('createdUser')
     .then((event) => res.json({ event }))
     .catch((error) => next(error));
 });

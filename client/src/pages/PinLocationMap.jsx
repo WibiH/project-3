@@ -12,9 +12,9 @@ const center = {
   lng: 13.41053,
 };
 
-const Nöldnerplatz = {
-  lat: 52.50373786897999,
-  lng: 13.480423318773171,
+const GermanHistoricalMuseum = {
+  lat: 52.51823676195955,
+  lng: 13.396979255025004,
 };
 
 const TempelhofeR = {
@@ -51,7 +51,7 @@ const PinLocationMap = () => {
     changer = true;
 
     setInfo({
-      eventName: "Nöldnerplatz Event",
+      eventName: "GermanHistoricalMuseum",
       description: "Nöldnerplatz description",
       createdUser: "Stuart",
       location: "berlin-Nöldnerplatz",
@@ -81,19 +81,8 @@ const PinLocationMap = () => {
           {/* Child components, such as markers, info windows, etc. */}
 
           <MarkerF
-            position={Nöldnerplatz}
-            label="Nöldnerplatz"
+            position={GermanHistoricalMuseum}
             onClick={handleClickPinNöldnerplatz}
-          />
-          <MarkerF
-            position={TempelhofeR}
-            label="TempelhofeR"
-            onClick={handleClickPinTempelhofeR}
-          />
-          <MarkerF
-            position={Brandenburger}
-            label="Brandenburger"
-            onClick={handleClickPinBrandenburger}
           />
         </GoogleMap>
       </LoadScript>

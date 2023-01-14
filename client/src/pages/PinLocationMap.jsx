@@ -1,5 +1,9 @@
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
-import { MarkerF } from "@react-google-maps/api";
+import {
+  GoogleMap,
+  LoadScript,
+  MarkerF,
+  useJsApiLoader,
+} from "@react-google-maps/api";
 import { useState } from "react";
 
 const containerStyle = {
@@ -71,12 +75,13 @@ const PinLocationMap = () => {
     });
   };
 
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+  });
+
   return (
     <>
-      <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-        id="map"
-      >
+      {isLoaded && (
         <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={12}>
           {/* Child components, such as markers, info windows, etc. */}
 
@@ -85,7 +90,7 @@ const PinLocationMap = () => {
             onClick={handleClickPinNöldnerplatz}
           />
         </GoogleMap>
-      </LoadScript>
+      )}
       {changer && (
         <>
           <h1>

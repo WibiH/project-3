@@ -34,7 +34,6 @@ function App() {
             // )
           }
         />
-
         <Route
           path="/events/:id/edit"
           element={
@@ -45,8 +44,9 @@ function App() {
           }
         />
         <Route path="/events/:id" element={<EventDisplaySinglePage />} />
+        {/* <Route path="/profile" element={user && <ProfilePage />} /> */}
 
-        <Route path="/profile" element={user && <ProfilePage />} />
+        <Route path="/profile/:id" element={user && <ProfilePage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
         <Route path="/login" element={<LogInPage />} />
         <Route path="/tour" element={<Tour />} />

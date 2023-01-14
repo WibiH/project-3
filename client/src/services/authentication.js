@@ -30,3 +30,10 @@ export const verify = (storedToken) =>
       headers: { Authorization: `Bearer ${storedToken}` },
     })
     .then((response) => response.data);
+
+export const userLoad = (id, token) =>
+  api
+    .get(`/profile/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((response) => response.data);

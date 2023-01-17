@@ -11,11 +11,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
-      HomePage
+    <div className="flex gap-4 flex-wrap p-5 justify-center">
       {events.map((event, index) => {
         return (
-          <div key={index}>
+          <div key={index} className=" flex-row">
             <EventCard event={event} />
           </div>
         );

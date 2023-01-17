@@ -11,7 +11,7 @@ const EventDisplayAllPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="p-5">
       <h1>Event List</h1>
       {events.length && <EventList events={events} />}
     </div>

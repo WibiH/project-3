@@ -22,13 +22,13 @@ const Profile = () => {
 
   useEffect(() => {
     userLoad(id, authToken).then((data) => setUser(data.user));
-  }, [id]);
+  }, [id, authToken]);
 
   return (
     <div>
       {user && <ProfileComponent user={user} />}
       <h1>Your favorite events</h1>
-      {attendances && <UserAttendedEvents attendances={attendances} />}
+      {attendances.length && <UserAttendedEvents attendances={attendances} />}
     </div>
   );
 };

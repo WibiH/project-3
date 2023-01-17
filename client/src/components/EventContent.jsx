@@ -1,4 +1,5 @@
 import React from "react";
+import AttendanceButton from "./AttendanceButton";
 
 const EventContent = ({ event }) => {
   // const { eventName, description, createdUser, picture, location, dateTime } =
@@ -14,6 +15,7 @@ const EventContent = ({ event }) => {
           <h3>Time: {event.dateTime.split("T")[1].split(":", 2).join(":")}</h3>
           <h5>{event.createdUser.name}</h5>
           <p>{event.description}</p>
+          <AttendanceButton event={event} />
         </div>
       )}
     </div>

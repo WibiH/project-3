@@ -4,6 +4,8 @@ const express = require('express');
 const routeGuard = require('../middleware/routeGuard');
 const eventsRouter = express.Router();
 const Event = require('../models/event');
+const User = require('../models/user');
+const Attendance = require('../models/attendance');
 // const upload = require('./upload');
 
 // - GET /events -> Fetch all events
@@ -74,6 +76,50 @@ eventsRouter.delete('/:id', routeGuard, (req, res, next) => {
   Event.findByIdAndDelete(id)
     .then(() => res.json({ success: true }))
     .catch((error) => next(error));
+});
+
+// - POST /events/:Id/going -> Create the attendance
+eventsRouter.post('/:id/attend', routeGuard, (req, res, next) => {
+  const { id } = req.params;
+  Attendance.create({
+    attendingUser: req.user._id,
+    attendingEvent: id
+  })
+    .then((attend) => {
+      console.log('This is ATTEND guy', attend);
+      User.findOneAndUpdate(
+        {
+          _id: req.user._id
+        },
+        { $push: { attendEventId: attend._id } },
+        (error, success) => {
+          if (error) {
+            console.log('This is the pushArrayERROR', error);
+          } else {
+            console.log('This is the pushArraySUCCESS', success);
+            res.json({ attend });
+          }
+        }
+      );
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
+
+// - DELETE /events/:Id/notgoing -> Delete the attendance
+eventsRouter.post('/:id/notattend', routeGuard, (req, res, next) => {
+  const { id } = req.params;
+  User.findOneAndDelete({
+    user: req.user._id,
+    attendEventId: id
+  })
+    .then((attend) => {
+      res.json({ attend });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 module.exports = eventsRouter;

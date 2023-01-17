@@ -15,12 +15,12 @@ router.post('/signup', (req, res, next) => {
   const hashedPassword = bcryptjs.hashSync(password, salt);
   console.log('This is the req.body', req.body);
   return User.create({
-    email,
-    password: hashedPassword,
     name,
     profilePicture,
     pronoun,
-    status
+    status,
+    email,
+    password: hashedPassword
   })
     .then((createdUser) => {
       console.log('This is the createdUser', createdUser);

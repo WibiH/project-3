@@ -8,12 +8,10 @@ const Event = require('../models/event');
 
 // GET - User info and the events they marked to attend
 profileRouter.get('/', routeGuard, (req, res, next) => {
-  console.log('This is the REQ.USER._ID', req.user._id);
-  User.findById(req.user._id)
-    .populate('attendEventId')
+  Event.find({ attendingEvent: req.user._id })
+    .populate('attendingEvent')
     .then((attendances) => {
-      console.log('This is the ATTENDANCE', { attendances });
-
+      console.log('attendance', { attendances });
       res.json({ attendances });
     })
     .catch((error) => {

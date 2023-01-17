@@ -21,6 +21,7 @@ const EventCreatePage = ({ user }) => {
   const { authToken } = useAuthContext();
 
   const handleEventCreation = () => {
+    console.log(eventData);
     eventAdd(eventData, authToken).then((data) => {
       const id = data.event._id;
       navigate(`/events/${id}`);

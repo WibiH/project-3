@@ -1,22 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import AttendanceButton from "../components/AttendanceButton";
-import EventCard from "./EventCard";
+import EventContent from "./EventContent";
 
 const UserAttendedEvents = ({ attendances }) => {
   return (
-    //Here could be the Event-component (EventList line9-16)
     <div>
-      {attendances.map((eachEvent) => {
-        return (
-          <div>
-            <EventCard />
-            <AttendanceButton />
-          </div>
-        );
-      })}
+      {attendances.length && <EventContent attendances={attendances} />}
     </div>
   );
 };
 
 export default UserAttendedEvents;
+
+/*
+ <div>
+      {attendances.map((eachEvent) => {
+        return (
+          <div>
+            <EventContent />
+          </div>
+        );
+      })}
+    </div>
+    */

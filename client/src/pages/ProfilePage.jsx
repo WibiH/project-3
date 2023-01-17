@@ -13,9 +13,10 @@ const Profile = () => {
   const { authToken } = useAuthContext();
 
   useEffect(() => {
-    attendanceLoadAll(authToken).then((data) =>
-      setAttendances(data.attendances)
-    );
+    attendanceLoadAll(authToken).then((data) => {
+      console.log(data.attendances);
+      setAttendances(data.attendances);
+    });
   }, [authToken]);
 
   const { id } = useParams();

@@ -4,21 +4,19 @@ import EventContent from "./EventContent";
 const UserAttendedEvents = ({ attendances }) => {
   return (
     <div>
-      {attendances.length && <EventContent attendances={attendances} />}
+      {attendances.length &&
+        attendances.map((attendance) => {
+          return (
+            attendance && (
+              <EventContent
+                key={attendance._id}
+                event={attendance.attendingEvent}
+              />
+            )
+          );
+        })}
     </div>
   );
 };
 
 export default UserAttendedEvents;
-
-/*
- <div>
-      {attendances.map((eachEvent) => {
-        return (
-          <div>
-            <EventContent />
-          </div>
-        );
-      })}
-    </div>
-    */

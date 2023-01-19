@@ -11,17 +11,21 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
 
   // const options = useMemo(() => countryList().getData(), []);
 
-  const onFileUploadError = (value) => {
-    console.log("onFileUploadError", value);
-    const { url } = value;
+  const onFileUploadError = (error) => {
+    console.log("onFileUploadError", error);
   };
-  const onFileUploadSuccess = (error) => {
-    console.log("onFileUploadSuccess", error);
+
+  const onFileUploadSuccess = (value) => {
+    console.log("onFileUploadSuccess", value);
+    const { url } = value;
+    onEventChange({ ...event, picture: url });
   };
 
   return (
     <form onSubmit={handleEventFormSubmission} className="flex flex-col">
-      <label htmlFor="eventName">Event Name</label>
+      <label htmlFor="eventName" className="mt-4">
+        Event Name
+      </label>
       <input
         type="text"
         name="eventName"
@@ -35,7 +39,9 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         value={event.eventName}
       />
 
-      <label htmlFor="description">Description</label>
+      <label htmlFor="description" className="mt-4">
+        Description
+      </label>
       <textarea
         name="description"
         id="description"
@@ -48,8 +54,16 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         value={event.description}
       ></textarea>
 
-      <label htmlFor="picture">Event Picture</label>
-      <input id="picture" type="file" name="picture" />
+      {/* <label htmlFor="picture">Event Picture</label>
+      <input id="picture" type="file" name="picture" /> */}
+
+      {event.picture && (
+        <img
+          src={event.picture}
+          alt={event.eventName}
+          className="w-1/2 rounded-md mt-4"
+        />
+      )}
 
       <IKContext
         // Required for image displayed
@@ -65,7 +79,9 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
       </IKContext>
 
       {/* Wishlist: Use Google Map API */}
-      <label htmlFor="location">Location</label>
+      <label htmlFor="location" className="mt-4">
+        Location
+      </label>
       <input
         type="text"
         name="location"
@@ -92,7 +108,9 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         }
       /> */}
 
-      <label htmlFor="dateTime">Event Date and Time</label>
+      <label htmlFor="dateTime" className="mt-4">
+        Event Date and Time
+      </label>
       <input
         type="datetime-local"
         name="dateTime"

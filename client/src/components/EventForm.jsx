@@ -4,6 +4,7 @@ import React, { useMemo } from "react";
 
 const EventForm = ({ event, onEventChange, onEventSubmit }) => {
   const handleEventFormSubmission = (e) => {
+    console.log(event);
     e.preventDefault();
     onEventSubmit();
   };

@@ -35,6 +35,11 @@ const Reichstag_Building = {
   lat: 52.51894133370614,
   lng: 13.376220479375386,
 };
+
+const House_of_world_cultures = {
+  lat: 52.51867513567039,
+  lng: 13.364424369180306,
+};
 let changer = false;
 
 const PinLocationMap = () => {
@@ -94,6 +99,18 @@ const PinLocationMap = () => {
     });
   };
 
+  const handleClickPinHouse_of_world_cultures = () => {
+    changer = true;
+
+    setInfo({
+      eventName: "House of World Cultures",
+      description:
+        "Germany's federal parliament, also known as the Bundestag, raised the rainbow flag for the first time on Saturday (07/23/2022) as the city held a parade and other events celebrating the lesbian, gay, bisexual, transgender and queer community. The flag, with its six colored stripes, stands for tolerance. The flag was erected in the morning atop the southwest tower of the Reichstag building in the German capital, Berlin. Two more were raised in front of the east and west portals.",
+      createdUser: "Admin user",
+      location: "John-Foster-Dulles-Allee 10, 10557 Berlin, Germany",
+    });
+  };
+
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
@@ -123,6 +140,11 @@ const PinLocationMap = () => {
             position={Reichstag_Building}
             onClick={handleClickPinReichstag_Building}
           />
+
+          <MarkerF
+            position={House_of_world_cultures}
+            onClick={handleClickPinHouse_of_world_cultures}
+          />
         </GoogleMap>
       )}
       {changer && (
@@ -141,7 +163,12 @@ const PinLocationMap = () => {
           </h3>
           <h3>
             {" "}
-            <strong>Address: </strong> {info.location}
+            <strong>Address: </strong>{" "}
+            <i>
+              <a href="https://www.google.co.uk/maps" target="_blank">
+                {info.location}
+              </a>
+            </i>
           </h3>
         </>
       )}

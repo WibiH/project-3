@@ -14,7 +14,7 @@ const EventDisplaySinglePage = () => {
   useEffect(() => {
     eventLoadSingle(id).then((data) => {
       setEvent(data.event);
-      console.log(data.event);
+      //console.log(data.event);
     });
   }, [id]);
 
@@ -26,7 +26,6 @@ const EventDisplaySinglePage = () => {
       {event && <EventContent event={event} />}
 
       <div className="">
-        {console.log(event)}
         {event && (
           <Link className="btn-primary" to={`/events/${id}/edit`}>
             Edit and Delete

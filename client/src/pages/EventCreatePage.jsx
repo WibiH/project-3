@@ -10,7 +10,7 @@ const EventCreatePage = ({ user }) => {
     description: "",
     createdUser: "",
     // createdUser: { user },
-    picture: null,
+    picture: "",
     location: "",
     dateTime: "",
   };

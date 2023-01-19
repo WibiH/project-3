@@ -10,37 +10,42 @@ const Navbar = () => {
     eraseToken();
   };
   return (
-    <nav className="w-full bg-gray-100">
+    <nav className="w-full text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
       <ul className="flex flex-col p-4 md:flex-row">
-        <li className="pr-3 text-blue-600">
-          <Link to="/home">Go back to the home page</Link>
+        <li className="pr-3 text-white hover:underline underline-offset-8">
+          <Link to="/home">Home</Link>
         </li>
-        <li className="pr-3">
+        <li className="pr-3 hover:underline underline-offset-8">
           <Link to="/events">All Events</Link>
         </li>
-        <li className="pr-3">
+        <li className="pr-3 hover:underline underline-offset-8">
           <Link to="/tour">Tour</Link>
         </li>
 
         {(user && (
-          <>
-            <li className="pr-3">
+          <div className="ml-auto flex flex-col mx-auto md:flex-row">
+            <li className="pr-3 hover:underline underline-offset-8">
               <Link to="/events/create">Create Events</Link>
             </li>
-            <li className="pr-3">
+            <li className="pr-3 hover:underline underline-offset-8">
               <Link to={`/profile/${user._id}`}>{user.name}´s Profile</Link>
             </li>
-            <button onClick={handleSignOut}>Sign Out</button>
-          </>
+            <button
+              onClick={handleSignOut}
+              className="pr-3 hover:underline underline-offset-8"
+            >
+              Sign Out
+            </button>
+          </div>
         )) || (
-          <>
-            <li className="pr-3">
+          <div className="ml-auto flex flex-col mx-auto md:flex-row">
+            <li className="pr-3 hover:underline underline-offset-8">
               <Link to="/login">Log In</Link>
             </li>
-            <li className="pr-3">
+            <li className="pr-3 hover:underline underline-offset-8">
               <Link to="/sign-up">Sign Up</Link>
             </li>
-          </>
+          </div>
         )}
       </ul>
     </nav>

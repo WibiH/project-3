@@ -21,7 +21,10 @@ const EventEditDeletePage = () => {
   };
 
   useEffect(() => {
-    eventLoadSingle(id).then((data) => setEvent(data.event));
+    eventLoadSingle(id).then((data) => {
+      setEvent(data.event);
+      console.log("FINDING CREATEDUSER", data.event.createdUser);
+    });
   }, [id]);
 
   return (
@@ -36,7 +39,7 @@ const EventEditDeletePage = () => {
       )}
       {event && (
         <form onSubmit={handleEventDeleteFormSubmission}>
-          <button className="btn-primary">Delete</button>
+          <button className="btn-rainbow">Delete</button>
         </form>
       )}
     </div>

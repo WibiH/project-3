@@ -83,7 +83,12 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         }
         value={event.dateTime}
       />
-      <button className="btn-rainbow mx-auto">Submit event</button>
+      <button
+        className="btn-rainbow mx-auto;
+   mx-auto"
+      >
+        Submit event
+      </button>
     </form>
   );
 };

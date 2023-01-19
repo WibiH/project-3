@@ -8,17 +8,24 @@ import { useAuthContext } from "../context/authentication";
 const EventDisplaySinglePage = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
+  const [isCreatedUser, setIsCreatedUser] = useState(false);
 
   const { user } = useAuthContext();
 
   useEffect(() => {
+    console.log("useEffect Start");
     eventLoadSingle(id).then((data) => {
       setEvent(data.event);
-      console.log(data.event);
+      console.log("event", data.event);
+      console.log("user ID", user._id);
+      console.log("FINDING CREATEDUSER", event.createdUser._id);
+      setIsCreatedUser(user._id === data.event.createdUser._id ? true : false);
     });
   }, [id]);
 
-  // console.log(event);
+  if (!event?.createdUser?._id) {
+    return <h1>I am loading</h1>;
+  }
 
   return (
     <div className="flex flex-col space-x-12 p-5">
@@ -26,8 +33,8 @@ const EventDisplaySinglePage = () => {
       {event && <EventContent event={event} />}
 
       <div className="">
-        {console.log(event)}
-        {event && (
+        {/* {console.log(event)} */}
+        {event && isCreatedUser && (
           <Link className="btn-primary" to={`/events/${id}/edit`}>
             Edit and Delete
           </Link>

@@ -13,7 +13,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col justify-center">
       <img
-        className="object-cover h-20 mx-auto "
+        className="object-cover h-20 mx-auto my-9"
         src="https://www.queerhistory.de/wp-content/uploads/2021/07/qhm-logo.png"
         alt="Queer History Month logo"
       />

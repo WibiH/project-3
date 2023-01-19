@@ -12,16 +12,17 @@ const Navbar = () => {
   return (
     <nav className="w-full text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
       <ul className="flex flex-col p-4 md:flex-row">
-        <li className="pr-3 text-white hover:underline underline-offset-8">
-          <Link to="/home">Home</Link>
-        </li>
-        <li className="pr-3 hover:underline underline-offset-8">
-          <Link to="/events">All Events</Link>
-        </li>
-        <li className="pr-3 hover:underline underline-offset-8">
-          <Link to="/tour">Tour</Link>
-        </li>
-
+        <div className="ml-auto flex flex-col mx-auto md:flex-row">
+          <li className="pr-3 text-white hover:underline underline-offset-8">
+            <Link to="/home">Home</Link>
+          </li>
+          <li className="pr-3 hover:underline underline-offset-8">
+            <Link to="/events">All Events</Link>
+          </li>
+          <li className="pr-3 hover:underline underline-offset-8">
+            <Link to="/tour">Tour</Link>
+          </li>
+        </div>
         {(user && (
           <div className="ml-auto flex flex-col mx-auto md:flex-row">
             <li className="pr-3 hover:underline underline-offset-8">

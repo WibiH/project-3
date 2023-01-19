@@ -22,7 +22,7 @@ router.get('/imagekit-authentication', (req, res, next) => {
 // const upload = require('./upload');
 
 // - GET /events -> Fetch all events
-eventsRouter.get('/home', (req, res, next) => {
+eventsRouter.get('/', (req, res, next) => {
   Event.find()
     .populate('createdUser')
     .then((events) => res.json({ events }))

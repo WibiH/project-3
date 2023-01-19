@@ -33,7 +33,7 @@ Attendance
 
 ### Endpoints
 
-- GET /home -> Fetch all events (display 3 random events)
+- GET / -> Fetch all events (display 3 random events)
 - GET /events -> Fetch all events (Q)
 - GET /events/:Id -> Fetch single event (Q)
 - POST /events -> Create event (Q)
@@ -77,7 +77,7 @@ Attendance
 
 - eventLoadSingle -> GET /events/:id
 - eventLoadAll -> GET /events
-- eventLoadRandom -> GET /events/random (for /home)
+- eventLoadRandom -> GET /events/random (for /)
 - eventAdd -> POST /events
 - eventEdit -> PATCH /events/:Id
 - eventDelete -> DELETE /events/:Id

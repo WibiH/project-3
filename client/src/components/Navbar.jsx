@@ -14,7 +14,7 @@ const Navbar = () => {
       <ul className="flex flex-col p-4 md:flex-row">
         <div className="ml-auto flex flex-col mx-auto md:flex-row">
           <li className="pr-3 text-white hover:underline underline-offset-8">
-            <Link to="/home">Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="pr-3 hover:underline underline-offset-8">
             <Link to="/events">All Events</Link>

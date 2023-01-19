@@ -7,7 +7,7 @@ const User = require('../models/user');
 const Event = require('../models/event');
 const Attendance = require('../models/attendance');
 
-// GET - User info and the events they marked to attend
+// GET - Fetch events marked to attend by user
 profileRouter.get('/', routeGuard, (req, res, next) => {
   console.log('This is the REQ.USER._ID', req.user._id);
   Attendance.find({ attendingUser: req.user._id })

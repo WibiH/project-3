@@ -23,7 +23,7 @@ const LogIn = (props) => {
         setUser(user);
         setIsLoading(false);
         setAuthToken(authToken);
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -55,12 +55,17 @@ const LogIn = (props) => {
           onChange={handlePasswordChange}
         />
         {errorMessage && (
-          <div className="bg-rose-200 border border-rose-600 p-4 mt-4 rounded-md">
-            <span className="text-rose-700">{errorMessage}</span>
+          <div className="bg-rose-200 border border-orange-600 p-4 mt-4 rounded-md">
+            <span className="text-orange-700">{errorMessage}</span>
           </div>
         )}
 
-        <button className="btn-primary">Log In</button>
+        <button
+          className="btn-rainbow mx-auto;
+   mx-auto"
+        >
+          Log In
+        </button>
       </form>
     </div>
   );

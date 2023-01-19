@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   },
   profilePicture: {
     type: String,
-    default: '/client/public/Profil.gif'
+    default: 'https://cdn-icons-png.flaticon.com/512/1251/1251840.png'
   },
   pronoun: {
     type: String,

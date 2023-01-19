@@ -29,3 +29,10 @@ export const attendanceDelete = (id, storedToken) =>
       console.log("This is response.data of not-attending", response.data);
       return response.data;
     });
+
+export const attendingUsersLoadAll = (id, attendances, storedToken) =>
+  api
+    .get(`/events/${id}/attendingUser`, attendances, {
+      headers: { Authorization: `Bearer ${storedToken}` },
+    })
+    .then((response) => response.data);

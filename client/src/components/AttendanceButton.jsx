@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { attendanceAdd, attendanceDelete } from "../services/attendances";
 import { useAuthContext } from "../context/authentication";
 import { useAttendanceContext } from "../context/attendances";
@@ -23,7 +23,10 @@ const AttendanceButton = ({ event }) => {
   };
 
   return (
-    <div className="btn-primary">
+    <div
+      className="btn-rainbow mx-auto;
+    mx-auto"
+    >
       <button onClick={handleClick}>
         {" "}
         {(isAttending && <p>You are attending</p>) || (

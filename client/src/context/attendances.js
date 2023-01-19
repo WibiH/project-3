@@ -5,13 +5,12 @@ import { useAuthContext } from "./authentication";
 export const AttendanceContext = createContext();
 
 export const AttendanceProviderWrapper = ({ children }) => {
-  // to do: state
   const [attendances, setAttendances] = useState([]);
   const [reloadAttendances, setReloadAttendances] = useState(true);
   const { authToken } = useAuthContext();
 
   useEffect(() => {
-    if (reloadAttendances) {
+    if (reloadAttendances && authToken) {
       attendanceLoadAll(authToken).then((data) => {
         console.log(data.attendances);
         setAttendances(data.attendances);

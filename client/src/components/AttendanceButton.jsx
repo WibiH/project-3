@@ -23,15 +23,10 @@ const AttendanceButton = ({ event }) => {
   };
 
   return (
-    <div
-      className="btn-rainbow mx-auto;
-    mx-auto"
-    >
+    <div className="inline-block px-4 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out md:px-7">
       <button onClick={handleClick}>
         {" "}
-        {(isAttending && <p>You are attending</p>) || (
-          <p>You are not attending</p>
-        )}
+        {(isAttending && <p>You are attending</p>) || <p>Not attending yet</p>}
       </button>
     </div>
   );

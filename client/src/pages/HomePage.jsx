@@ -17,12 +17,18 @@ const HomePage = () => {
         src="https://www.queerhistory.de/wp-content/uploads/2021/07/qhm-logo.png"
         alt="Queer History Month logo"
       />
-      <div className="w-2/3 h-72 mx-auto ">
-        <h1>Some type of images</h1>
-      </div>
-      <div className="w-2/3 h-72 mx-auto">
-        <h1>About us</h1>
-        <p>
+
+      <img
+        className="object-cover w-2/3 h-72 mx-auto mb-9 rounded-lg"
+        src="https://www.queerhistory.de/wp-content/uploads/2021/09/Gruppenfoto-1.jpg"
+        alt="Queer History Month"
+      />
+
+      <div className="w-2/3 max-h-64 m-auto">
+        <h1 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+          About us
+        </h1>
+        <p className="mb-6 pb-2 md:mb-12 md:pb-0">
           Queer History Month is a collaborative project that aims to promote
           the treatment of historical as well as contemporary queer issues in
           education. On the trail of queer stories and people in Berlin.

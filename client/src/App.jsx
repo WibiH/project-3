@@ -6,7 +6,7 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
-import { AuthProviderWrapper } from "./context/authentication";
+
 import { useAuthContext } from "./context/authentication";
 import EventCreatePage from "./pages/EventCreatePage";
 import EventEditDeletePage from "./pages/EventEditDeletePage";
@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/events" element={<EventDisplayAllPage />} />
         <Route
           path="/events/create"

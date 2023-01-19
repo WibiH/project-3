@@ -15,8 +15,10 @@ const SignUp = (props) => {
   const navigate = useNavigate();
 
   const handleNameChange = (event) => setName(event.target.value);
-  const handleProfilePictureChange = (event) =>
+  const handleProfilePictureChange = (event) => {
+    console.log(event.target.value);
     setProfilePicture(event.target.value);
+  };
   const handlePronounChange = (event) => setPronoun(event.target.value);
   const handleStatusChange = (event) => setStatus(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
@@ -26,22 +28,20 @@ const SignUp = (props) => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-    if (!name.startsWith("Wi")) {
-      signup(name, profilePicture, pronoun, status, email, password)
-        .then((data) => {
-          const { user, authToken } = data;
-          setUser(user);
-          setIsLoading(false);
-          setAuthToken(authToken);
-          navigate("/");
-        })
-        .catch((error) => {
-          console.log(error);
-          setIsLoading(false);
-          setErrorMessage("There was an error authenticating you.");
-        });
-    }
+    console.log("NAME", name, "PROFILEPICTURE", typeof profilePicture);
+    signup(name, profilePicture, pronoun, status, email, password)
+      .then((data) => {
+        const { user, authToken } = data;
+        setUser(user);
+        setIsLoading(false);
+        setAuthToken(authToken);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+        setErrorMessage("There was an error authenticating you.");
+      });
   };
 
   return (
@@ -66,7 +66,6 @@ const SignUp = (props) => {
           placeholder="Profile picture"
           value={profilePicture}
           onChange={handleProfilePictureChange}
-          required
         />
 
         <label htmlFor="pronoun">Pronoun</label>
@@ -87,6 +86,7 @@ const SignUp = (props) => {
 
         <div>
           <input
+            style={{ color: "darkorchid" }}
             id="status-user"
             type="radio"
             name="status-user"
@@ -97,6 +97,7 @@ const SignUp = (props) => {
           <label htmlFor="status-user">User</label>
 
           <input
+            style={{ color: "darkorchid" }}
             id="status-admin"
             type="radio"
             name="status-admin"
@@ -130,11 +131,16 @@ const SignUp = (props) => {
         />
 
         {errorMessage && (
-          <div className="bg-rose-200 border border-rose-600 p-4 mt-4 rounded-md">
-            <span className="text-rose-700">{errorMessage}</span>
+          <div className="bg-rose-200 border border-orange-600 p-4 mt-4 rounded-md">
+            <span className="text-orange-700">{errorMessage}</span>
           </div>
         )}
-        <button className="btn-primary">Sign Up</button>
+        <button
+          className="btn-rainbow mx-auto;
+    mx-auto"
+        >
+          Sign Up
+        </button>
       </form>
     </div>
   );

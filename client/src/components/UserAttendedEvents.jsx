@@ -1,5 +1,5 @@
 import React from "react";
-import EventContent from "./EventContent";
+import EventCard from "./EventCard";
 
 const UserAttendedEvents = ({ attendances }) => {
   return (
@@ -8,7 +8,7 @@ const UserAttendedEvents = ({ attendances }) => {
         attendances.map((attendance) => {
           return (
             attendance && (
-              <EventContent
+              <EventCard
                 key={attendance._id}
                 event={attendance.attendingEvent}
               />

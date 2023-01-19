@@ -111,4 +111,19 @@ eventsRouter.delete('/:id/notattend', routeGuard, (req, res, next) => {
     });
 });
 
+// GET - Fetch all attending users for one event
+eventsRouter.get('/:id/attendingUser', routeGuard, (req, res, next) => {
+  Attendance.find({ attendingEvent: req.event._id })
+    .populate('attendingUser')
+    .then((attendances) => {
+      console.log('This is the ATTENDANCE', { attendances });
+
+      res.json({ attendances });
+    })
+    .catch((error) => {
+      console.log('This is the ERROR', error);
+      next(error);
+    });
+});
+
 module.exports = eventsRouter;

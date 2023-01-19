@@ -12,17 +12,24 @@ export const signup = (
   status,
   email,
   password
-) =>
-  api
+) => {
+  let picture = "";
+  if (profilePicture === "") {
+    picture = "https://cdn-icons-png.flaticon.com/512/1251/1251840.png";
+  } else {
+    picture = profilePicture;
+  }
+  return api
     .post("/authentication/signup", {
       name,
-      profilePicture,
+      picture,
       pronoun,
       status,
       email,
       password,
     })
     .then((response) => response.data);
+};
 
 export const verify = (storedToken) =>
   api

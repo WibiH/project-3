@@ -29,9 +29,11 @@ const Profile = () => {
 
   return (
     <div>
-      {user && <ProfileComponent user={user} />}
-      <h1>Your favorite events</h1>
-      {attendances.length && <UserAttendedEvents attendances={attendances} />}
+      <div>{user && <ProfileComponent user={user} />}</div>
+      <div>
+        <h1>Your favorite events</h1>
+        {attendances.length && <UserAttendedEvents attendances={attendances} />}
+      </div>
     </div>
   );
 };

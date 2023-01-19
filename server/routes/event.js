@@ -66,6 +66,7 @@ eventsRouter.patch('/:id', routeGuard, (req, res, next) => {
     { eventName, description, createdUser, picture, location, dateTime },
     { new: true }
   )
+    .populate('createdUser')
     .then((event) => res.json({ event }))
     .catch((error) => next(error));
 });

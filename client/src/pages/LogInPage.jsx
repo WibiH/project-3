@@ -23,7 +23,7 @@ const LogIn = (props) => {
         setUser(user);
         setIsLoading(false);
         setAuthToken(authToken);
-        navigate("/");
+        navigate("/home");
       })
       .catch((error) => {
         console.log(error);

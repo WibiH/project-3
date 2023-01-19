@@ -9,17 +9,32 @@ import { useAuthContext } from "../context/authentication";
 const EventDisplaySinglePage = () => {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
+<<<<<<< HEAD
   //const [attendances, setAttendances] = useState([]);
+=======
+  const [isCreatedUser, setIsCreatedUser] = useState(false);
+>>>>>>> ab76008faec26fc00b4b3470d91589f0cd62517c
 
   const { user } = useAuthContext();
 
   useEffect(() => {
+    console.log("useEffect Start");
     eventLoadSingle(id).then((data) => {
       setEvent(data.event);
-      console.log(data.event);
+      console.log("event", data.event);
+      console.log("user ID", user._id);
+      console.log("FINDING CREATEDUSER", event.createdUser._id);
+      setIsCreatedUser(user._id === data.event.createdUser._id ? true : false);
     });
   }, [id]);
+<<<<<<< HEAD
   // console.log(event);
+=======
+
+  if (!event?.createdUser?._id) {
+    return <h1>I am loading</h1>;
+  }
+>>>>>>> ab76008faec26fc00b4b3470d91589f0cd62517c
 
   /*
   useEffect(() => {
@@ -33,8 +48,8 @@ const EventDisplaySinglePage = () => {
       {event && <EventContent event={event} defaultValue={false} />}
 
       <div className="">
-        {console.log(event)}
-        {event && (
+        {/* {console.log(event)} */}
+        {event && isCreatedUser && (
           <Link className="btn-primary" to={`/events/${id}/edit`}>
             Edit and Delete
           </Link>

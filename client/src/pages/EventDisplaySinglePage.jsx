@@ -6,22 +6,21 @@ import { eventLoadSingle } from "../services/event";
 import { useAuthContext } from "../context/authentication";
 
 const EventDisplaySinglePage = () => {
+  const { user } = useAuthContext();
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [isCreatedUser, setIsCreatedUser] = useState(false);
 
-  const { user } = useAuthContext();
-
   useEffect(() => {
-    console.log("useEffect Start");
+    // console.log("useEffect Start");
     eventLoadSingle(id).then((data) => {
       setEvent(data.event);
-      console.log("event", data.event);
-      console.log("user ID", user._id);
-      console.log("FINDING CREATEDUSER", event.createdUser._id);
-      setIsCreatedUser(user._id === data.event.createdUser._id ? true : false);
+      // console.log("event", data.event);
+      // console.log("user ID", user._id);
+      // console.log("FINDING CREATEDUSER", event.createdUser._id);
+      setIsCreatedUser(user && user._id === data.event.createdUser._id);
     });
-  }, [id]);
+  }, [id, user]);
 
   if (!event?.createdUser?._id) {
     return <h1>I am loading</h1>;

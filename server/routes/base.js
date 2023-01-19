@@ -6,8 +6,17 @@ const routeGuard = require('../middleware/routeGuard');
 const eventsRouter = express.Router();
 const Event = require('../models/event');
 
-router.get('/', (req, res, next) => {
-  res.json({ type: 'success', data: { title: 'Hello World' } });
+var ImageKit = require('imagekit');
+
+var imagekit = new ImageKit({
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: process.env.IMAGEKIT_URL
+});
+
+router.get('/imagekit-authentication', (req, res, next) => {
+  var authenticationParameters = imagekit.getAuthenticationParameters();
+  res.json(authenticationParameters);
 });
 
 // const upload = require('./upload');

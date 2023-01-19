@@ -4,11 +4,13 @@ import EventContent from "../components/EventContent";
 import { useParams, Link } from "react-router-dom";
 import { eventLoadSingle } from "../services/event";
 import { useAuthContext } from "../context/authentication";
+//import { attendanceLoadAll } from "../services/attendances";
 
 const EventDisplaySinglePage = () => {
   const { user } = useAuthContext();
   const { id } = useParams();
   const [event, setEvent] = useState(null);
+  //const [attendances, setAttendances] = useState([]);
   const [isCreatedUser, setIsCreatedUser] = useState(false);
 
   useEffect(() => {
@@ -22,14 +24,22 @@ const EventDisplaySinglePage = () => {
     });
   }, [id, user]);
 
+  // console.log(event);
+
   if (!event?.createdUser?._id) {
     return <h1>I am loading</h1>;
   }
 
+  /*
+  useEffect(() => {
+    attendanceLoadAll().then((data) => attendanceLoadAll(data.attendances));
+  }, []);
+  */
+
   return (
     <div className="flex flex-col space-x-12 p-5">
       {/* <EventContent event={event} /> */}
-      {event && <EventContent event={event} />}
+      {event && <EventContent event={event} defaultValue={false} />}
 
       <div className="">
         {/* {console.log(event)} */}

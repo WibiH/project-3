@@ -87,7 +87,7 @@ eventsRouter.post('/:id/attend', routeGuard, (req, res, next) => {
     attendingEvent: id
   })
     .then((attend) => {
-      console.log('This is ATTEND guy', attend);
+      console.log('This is Yes I ATTEND', attend);
       res.json({ attend });
     })
     .catch((error) => {
@@ -96,13 +96,14 @@ eventsRouter.post('/:id/attend', routeGuard, (req, res, next) => {
 });
 
 // - DELETE /events/:Id/notgoing -> Delete the attendance
-eventsRouter.post('/:id/notattend', routeGuard, (req, res, next) => {
+eventsRouter.delete('/:id/notattend', routeGuard, (req, res, next) => {
   const { id } = req.params;
   Attendance.findOneAndDelete({
     attendingUser: req.user._id,
     attendingEvent: id
   })
     .then((attend) => {
+      console.log('This is the No, I won`t ATTEND', attend);
       res.json({ attend });
     })
     .catch((error) => {

@@ -1,27 +1,32 @@
 import React, { useState } from "react";
-import { attendanceAdd } from "../services/attendances";
+import { attendanceAdd, attendanceDelete } from "../services/attendances";
 import { useAuthContext } from "../context/authentication";
+import { useAttendanceContext } from "../context/attendances";
 
 const AttendanceButton = ({ event }) => {
-  const [attendance, setAttendance] = useState(true);
+  const { attendances, setAttendances } = useAttendanceContext();
+  const isAttending = attendances.some(
+    (eachAttendance) => event._id === eachAttendance.attendingEvent._id
+  );
 
-  const toogleAttendance = () => {
-    setAttendance(!attendance);
-  };
-
-  const { authToken } = useAuthContext();
+  const { authToken, user } = useAuthContext();
 
   const handleClick = () => {
-    const reqBody = event;
-    toogleAttendance();
-    attendanceAdd(event._id, reqBody, authToken);
+    const reqBody = { attendingUser: user._id, attendingEvent: event._id };
+    if (isAttending) {
+      console.log("This is Button-Authtoken", authToken);
+      attendanceDelete(event._id, authToken);
+    } else {
+      console.log("This is the attendance-button authToken", authToken);
+      attendanceAdd(event._id, reqBody, authToken);
+    }
   };
 
   return (
     <div className="btn-primary">
       <button onClick={handleClick}>
         {" "}
-        {(attendance && <p>You are attending</p>) || (
+        {(isAttending && <p>You are attending</p>) || (
           <p>You are not attending</p>
         )}
       </button>

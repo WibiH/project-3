@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { IKContext, IKUpload } from "imagekitio-react";
 // import Select from "react-select";
 // import countryList from "react-select-country-list";
 
@@ -9,6 +10,14 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
   };
 
   // const options = useMemo(() => countryList().getData(), []);
+
+  const onFileUploadError = (value) => {
+    console.log("onFileUploadError", value);
+    const { url } = value;
+  };
+  const onFileUploadSuccess = (error) => {
+    console.log("onFileUploadSuccess", error);
+  };
 
   return (
     <form onSubmit={handleEventFormSubmission} className="flex flex-col">
@@ -41,6 +50,19 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
 
       <label htmlFor="picture">Event Picture</label>
       <input id="picture" type="file" name="picture" />
+
+      <IKContext
+        // Required for image displayed
+        urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL}
+        // Required for image upload
+        publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
+        authenticationEndpoint={
+          process.env.REACT_APP_API_BASE_URL +
+          process.env.REACT_APP_AUTHENTICATION_ENDPOINT
+        }
+      >
+        <IKUpload onError={onFileUploadError} onSuccess={onFileUploadSuccess} />
+      </IKContext>
 
       {/* Wishlist: Use Google Map API */}
       <label htmlFor="location">Location</label>

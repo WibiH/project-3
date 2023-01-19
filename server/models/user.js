@@ -32,8 +32,7 @@ const schema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  },
-  attendEventId: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Event' }]
+  }
 });
 
 const User = mongoose.model('User', schema);

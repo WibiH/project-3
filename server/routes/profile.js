@@ -5,12 +5,13 @@ const profileRouter = express.Router();
 // const Attendance = require('../models/attendance');
 const User = require('../models/user');
 const Event = require('../models/event');
+const Attendance = require('../models/attendance');
 
 // GET - User info and the events they marked to attend
 profileRouter.get('/', routeGuard, (req, res, next) => {
   console.log('This is the REQ.USER._ID', req.user._id);
-  User.findById(req.user._id)
-    .populate('attendEventId')
+  Attendance.find({ attendingUser: req.user._id })
+    .populate('attendingEvent')
     .then((attendances) => {
       console.log('This is the ATTENDANCE', { attendances });
 

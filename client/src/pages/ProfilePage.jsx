@@ -6,17 +6,20 @@ import UserAttendedEvents from "../components/UserAttendedEvents";
 import ProfileComponent from "../components/ProfileComponent";
 import { useAuthContext } from "../context/authentication";
 import { useParams } from "react-router-dom";
+import { useAttendanceContext } from "../context/attendances";
 
 const Profile = () => {
-  const [attendances, setAttendances] = useState([]);
   const [user, setUser] = useState([]);
   const { authToken } = useAuthContext();
+  const { attendances, setAttendances } = useAttendanceContext();
+  console.log(attendances);
 
   useEffect(() => {
-    attendanceLoadAll(authToken).then((data) =>
-      setAttendances(data.attendances)
-    );
-  }, [authToken]);
+    attendanceLoadAll(authToken).then((data) => {
+      console.log(data.attendances);
+      setAttendances(data.attendances);
+    });
+  }, [authToken, setAttendances]);
 
   const { id } = useParams();
 

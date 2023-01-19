@@ -66,6 +66,7 @@ eventsRouter.patch('/:id', routeGuard, (req, res, next) => {
     { eventName, description, createdUser, picture, location, dateTime },
     { new: true }
   )
+    .populate('createdUser')
     .then((event) => res.json({ event }))
     .catch((error) => next(error));
 });
@@ -86,21 +87,8 @@ eventsRouter.post('/:id/attend', routeGuard, (req, res, next) => {
     attendingEvent: id
   })
     .then((attend) => {
-      console.log('This is ATTEND guy', attend);
-      User.findOneAndUpdate(
-        {
-          _id: req.user._id
-        },
-        { $push: { attendEventId: attend._id } },
-        (error, success) => {
-          if (error) {
-            console.log('This is the pushArrayERROR', error);
-          } else {
-            console.log('This is the pushArraySUCCESS', success);
-            res.json({ attend });
-          }
-        }
-      );
+      console.log('This is Yes I ATTEND', attend);
+      res.json({ attend });
     })
     .catch((error) => {
       next(error);
@@ -108,13 +96,14 @@ eventsRouter.post('/:id/attend', routeGuard, (req, res, next) => {
 });
 
 // - DELETE /events/:Id/notgoing -> Delete the attendance
-eventsRouter.post('/:id/notattend', routeGuard, (req, res, next) => {
+eventsRouter.delete('/:id/notattend', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  User.findOneAndDelete({
-    user: req.user._id,
-    attendEventId: id
+  Attendance.findOneAndDelete({
+    attendingUser: req.user._id,
+    attendingEvent: id
   })
     .then((attend) => {
+      console.log('This is the No, I won`t ATTEND', attend);
       res.json({ attend });
     })
     .catch((error) => {

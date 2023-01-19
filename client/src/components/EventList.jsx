@@ -14,7 +14,11 @@ const EventList = ({ events }) => {
               <div className="flex flex-row">
                 <img
                   className="object-cover rounded-tl-lg rounded-bl-lg w-1/3"
-                  src="https://cdn.pixabay.com/photo/2016/12/19/18/21/snowflake-1918794__340.jpg"
+                  src={
+                    eachEvent.picture
+                      ? eachEvent.picture
+                      : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/The_Event_2010_Intertitle.svg/250px-The_Event_2010_Intertitle.svg.png"
+                  }
                   alt={eachEvent.name}
                 />
                 <div className="px-6 py-4">

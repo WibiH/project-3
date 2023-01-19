@@ -13,16 +13,19 @@ export const attendanceAdd = (id, attendance, storedToken) =>
       headers: { Authorization: `Bearer ${storedToken}` },
     })
     .then((response) => {
-      console.log("This is response.data", response.data);
+      console.log("This is response.data of yes-attending", response.data);
       return response.data;
     })
     .catch((error) => {
-      console.log(error);
+      console.log("This is the attendanceAdd-ERROR", error);
     });
 
-export const attendanceDelete = (id, attendance, storedToken) =>
+export const attendanceDelete = (id, storedToken) =>
   api
-    .delete(`/events/${id}/notattend`, attendance, {
+    .delete(`/events/${id}/notattend`, {
       headers: { Authorization: `Bearer ${storedToken}` },
     })
-    .then((response) => response.data);
+    .then((response) => {
+      console.log("This is response.data of not-attending", response.data);
+      return response.data;
+    });

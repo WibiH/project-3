@@ -2,14 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const EventCard = ({ event }) => {
+  console.log(event.picture);
+
   return (
     <div className="max-w-sm border border-gray-200 rounded-lg shadow-md lg:max-w-md">
       <Link to={`/events/${event._id}`}>
         <img
           className="object-cover w-full h-48 rounded-tl-lg rounded-tr-lg"
-          src="https://cdn.pixabay.com/photo/2016/12/19/18/21/snowflake-1918794__340.jpg"
+          src={
+            event.picture
+              ? event.picture
+              : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/The_Event_2010_Intertitle.svg/250px-The_Event_2010_Intertitle.svg.png"
+          }
           alt={event.eventName}
         />
+
         <div className="px-6 py-4">
           <h4 className="mb-3 text-xl font-semibold tracking-tight text-gray-900">
             {event.eventName}

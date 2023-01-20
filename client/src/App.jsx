@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import SignUpPage from "./pages/SignUpPage";
 import LogInPage from "./pages/LogInPage";
+import Footer from "./components/Footer";
 
 import { useAuthContext } from "./context/authentication";
 import EventCreatePage from "./pages/EventCreatePage";
@@ -52,6 +53,7 @@ function App() {
         <Route path="/login" element={<LogInPage />} />
         <Route path="/tour" element={<Tour />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

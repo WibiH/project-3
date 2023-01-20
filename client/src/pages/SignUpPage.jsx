@@ -61,6 +61,7 @@ const SignUp = (props) => {
         <label htmlFor="name">Name</label>
         <input
           id="name"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="text"
           name="name"
           placeholder="Name"
@@ -69,9 +70,10 @@ const SignUp = (props) => {
           required
         />
 
-        {/* <label htmlFor="profilePicture">Profile picture</label>
+        {/* <label htmlFor="profilePicture" className='block mb-2 text-sm font-medium text-gray-900'>Profile picture</label>
         <input
           id="profilePicture"
+          className: 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none'
           type="file"
           name="profilePicture"
           placeholder="Profile picture"
@@ -106,6 +108,7 @@ const SignUp = (props) => {
         <label htmlFor="pronoun">Pronoun</label>
         <select
           id="pronoun"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="text"
           name="pronoun"
           placeholder="Pronoun"
@@ -121,8 +124,9 @@ const SignUp = (props) => {
 
         <div>
           <input
-            style={{ color: "darkorchid" }}
+            style={{ color: "mediumpurple" }}
             id="status-user"
+            className="w-4 h-4 border-gray-300 focus:ring-purple-500 focus:border-purple-500"
             type="radio"
             name="status-user"
             checked={status === "user"}
@@ -132,8 +136,9 @@ const SignUp = (props) => {
           <label htmlFor="status-user">User</label>
 
           <input
-            style={{ color: "darkorchid" }}
+            style={{ color: "mediumpurple" }}
             id="status-admin"
+            className="w-4 h-4 border-gray-300 focus:ring-purple-500 focus:border-purple-500"
             type="radio"
             name="status-admin"
             checked={status === "admin"}
@@ -146,6 +151,7 @@ const SignUp = (props) => {
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="text"
           name="email"
           placeholder="Email"
@@ -157,6 +163,7 @@ const SignUp = (props) => {
         <label htmlFor="password">Password</label>
         <input
           id="password"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="password"
           name="password"
           placeholder="Password"

@@ -33,11 +33,12 @@ const LogIn = (props) => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col justify-center">
       <form onSubmit={handleFormSubmit} className="flex flex-col m-8">
         <label htmlFor="email">Email</label>
         <input
           id="email"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="email"
           name="email"
           placeholder="Email"
@@ -48,6 +49,7 @@ const LogIn = (props) => {
         <label htmlFor="password">Password</label>
         <input
           id="password"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="password"
           name="password"
           placeholder="Password"

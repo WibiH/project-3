@@ -3,7 +3,7 @@ import EventCard from "./EventCard";
 
 const UserAttendedEvents = ({ attendances }) => {
   return (
-    <div>
+    <div className=" flex-row">
       {attendances.length &&
         attendances.map((attendance) => {
           return (

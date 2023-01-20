@@ -22,11 +22,12 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleEventFormSubmission} className="flex flex-col">
+    <form onSubmit={handleEventFormSubmission} className="flex flex-col m-8">
       <label htmlFor="eventName" className="mt-4">
         Event Name
       </label>
       <input
+        className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
         type="text"
         name="eventName"
         id="eventName"
@@ -43,6 +44,7 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         Description
       </label>
       <textarea
+        className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
         name="description"
         id="description"
         onChange={(e) =>
@@ -83,6 +85,7 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         Location
       </label>
       <input
+        className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
         type="text"
         name="location"
         id="location"
@@ -112,6 +115,7 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         Event Date and Time
       </label>
       <input
+        className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
         type="datetime-local"
         name="dateTime"
         id="dateTime"

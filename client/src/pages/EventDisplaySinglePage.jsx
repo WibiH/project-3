@@ -43,11 +43,7 @@ const EventDisplaySinglePage = () => {
       <div className="">
         {/* {console.log(event)} */}
         {event && isCreatedUser && (
-          <Link
-            className="btn-rainbow mx-auto;
-   mx-auto"
-            to={`/events/${id}/edit`}
-          >
+          <Link className="btn-rainbow mx-auto" to={`/events/${id}/edit`}>
             Edit and Delete
           </Link>
         )}

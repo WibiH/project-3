@@ -5,7 +5,7 @@ const EventCard = ({ event }) => {
   console.log(event.picture);
 
   return (
-    <div className="max-w-sm border border-gray-200 rounded-lg shadow-md lg:max-w-md">
+    <div className="w-72 border border-gray-200 rounded-lg shadow-md lg:max-w-md">
       <Link to={`/events/${event._id}`}>
         <img
           className="object-cover w-full h-48 rounded-tl-lg rounded-tr-lg"

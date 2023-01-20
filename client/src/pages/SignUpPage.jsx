@@ -70,8 +70,10 @@ const SignUp = (props) => {
           required
         />
 
-        {/* <label htmlFor="profilePicture" className='block mb-2 text-sm font-medium text-gray-900'>Profile picture</label>
-        <input
+        <label htmlFor="profilePicture" className="mt-3">
+          Profile picture
+        </label>
+        {/* <input
           id="profilePicture"
           className: 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none'
           type="file"
@@ -105,7 +107,9 @@ const SignUp = (props) => {
           />
         </IKContext>
 
-        <label htmlFor="pronoun">Pronoun</label>
+        <label htmlFor="pronoun" className="mt-3">
+          Pronoun
+        </label>
         <select
           id="pronoun"
           className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
@@ -122,7 +126,7 @@ const SignUp = (props) => {
           <option value="other">other</option>
         </select>
 
-        <div>
+        <div className="mt-3">
           <input
             style={{ color: "mediumpurple" }}
             id="status-user"
@@ -148,7 +152,9 @@ const SignUp = (props) => {
           <label htmlFor="status-admin">Admin</label>
         </div>
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" className="mt-3">
+          Email
+        </label>
         <input
           id="email"
           className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
@@ -160,7 +166,9 @@ const SignUp = (props) => {
           required
         />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="mt-3">
+          Password
+        </label>
         <input
           id="password"
           className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
@@ -177,12 +185,7 @@ const SignUp = (props) => {
             <span className="text-orange-700">{errorMessage}</span>
           </div>
         )}
-        <button
-          className="btn-rainbow mx-auto;
-    mx-auto"
-        >
-          Sign Up
-        </button>
+        <button className="btn-rainbow mx-auto mt-9">Sign Up</button>
       </form>
     </div>
   );

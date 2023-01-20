@@ -20,40 +20,42 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/events" element={<EventDisplayAllPage />} />
-        <Route
-          path="/events/create"
-          element={
-            // <EventCreatePage />
-            // <EventCreatePage user={user} />
-            user && <EventCreatePage />
-            // || (
-            //   <AuthenticationRequiredErrorPage />
-            // )
-          }
-        />
-        <Route
-          path="/events/:id/edit"
-          element={
-            // <EventEditDeletePage />
-            user && <EventEditDeletePage />
-            // (user && <EventEditDeletePage />) || (
-            //   <AuthenticationRequiredErrorPage />
-            // )
-          }
-        />
-        <Route path="/events/:id" element={<EventDisplaySinglePage />} />
-        {/* <Route path="/profile" element={user && <ProfilePage />} /> */}
+      <div className="content-container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events" element={<EventDisplayAllPage />} />
+          <Route
+            path="/events/create"
+            element={
+              // <EventCreatePage />
+              // <EventCreatePage user={user} />
+              user && <EventCreatePage />
+              // || (
+              //   <AuthenticationRequiredErrorPage />
+              // )
+            }
+          />
+          <Route
+            path="/events/:id/edit"
+            element={
+              // <EventEditDeletePage />
+              user && <EventEditDeletePage />
+              // (user && <EventEditDeletePage />) || (
+              //   <AuthenticationRequiredErrorPage />
+              // )
+            }
+          />
+          <Route path="/events/:id" element={<EventDisplaySinglePage />} />
+          {/* <Route path="/profile" element={user && <ProfilePage />} /> */}
 
-        <Route path="/profile/:id" element={user && <ProfilePage />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/tour" element={<Tour />} />
-      </Routes>
-      <Footer />
+          <Route path="/profile/:id" element={user && <ProfilePage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/tour" element={<Tour />} />
+        </Routes>
+      </div>
+      <Footer className="footer--pin" />
     </div>
   );
 }

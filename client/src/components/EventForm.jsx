@@ -56,8 +56,10 @@ const EventForm = ({ event, onEventChange, onEventSubmit }) => {
         value={event.description}
       ></textarea>
 
-      {/* <label htmlFor="picture">Event Picture</label>
-      <input id="picture" type="file" name="picture" /> */}
+      <label htmlFor="picture" className="mt-4">
+        Event Picture
+      </label>
+      {/* <input id="picture" type="file" name="picture" /> */}
 
       {event.picture && (
         <img

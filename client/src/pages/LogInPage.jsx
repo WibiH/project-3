@@ -33,7 +33,7 @@ const LogIn = (props) => {
   };
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center mb-auto">
       <form onSubmit={handleFormSubmit} className="flex flex-col m-8">
         <label htmlFor="email">Email</label>
         <input
@@ -62,12 +62,7 @@ const LogIn = (props) => {
           </div>
         )}
 
-        <button
-          className="btn-rainbow mx-auto;
-   mx-auto"
-        >
-          Log In
-        </button>
+        <button className="btn-rainbow mx-auto mt-9">Log In</button>
       </form>
     </div>
   );

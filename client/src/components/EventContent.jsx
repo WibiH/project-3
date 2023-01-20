@@ -38,7 +38,9 @@ const EventContent = ({ event }) => {
           </div>
 
           {/* {event.picture && <img src={event.picture} alt={event.eventName} />} */}
-          <h1 className="text-2xl font-bold mb-1 mt-4">{event.eventName}</h1>
+          <h1 className="text-2xl font-bold mb-1 mt-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+            {event.eventName}
+          </h1>
           <h3 className="font-semibold text-gray-600 mb-4">{event.location}</h3>
           <h3 className="text-l font-semibold mb-2 text-gray-700">
             Date: {event.dateTime.split("T")[0].toString()}

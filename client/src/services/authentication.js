@@ -15,7 +15,7 @@ export const signup = (
 ) => {
   let picture = "";
   if (profilePicture === "") {
-    picture = "https://cdn-icons-png.flaticon.com/512/1251/1251840.png";
+    picture = "https://ik.imagekit.io/auewbfj8o/DefaultProfilePic.png";
   } else {
     picture = profilePicture;
   }

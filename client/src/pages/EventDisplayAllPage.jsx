@@ -12,7 +12,9 @@ const EventDisplayAllPage = () => {
 
   return (
     <div className="p-5">
-      <h1>Event List</h1>
+      <h1 className="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+        Event List
+      </h1>
       {events.length && <EventList events={events} />}
     </div>
   );

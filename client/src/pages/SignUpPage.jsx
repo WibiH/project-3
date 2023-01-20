@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/authentication";
 import { signup } from "../services/authentication";
+import { IKContext, IKUpload } from "imagekitio-react";
 
 const SignUp = (props) => {
   const [name, setName] = useState("");
@@ -44,6 +45,16 @@ const SignUp = (props) => {
       });
   };
 
+  const onProfileUploadError = (error) => {
+    console.log("onProfileUploadError", error);
+  };
+
+  const onProfileUploadSuccess = (value) => {
+    console.log("onProfileUploadSuccess", value);
+    const { url } = value;
+    setProfilePicture(url);
+  };
+
   return (
     <div>
       <form onSubmit={handleFormSubmit} className="flex flex-col m-8">
@@ -58,7 +69,7 @@ const SignUp = (props) => {
           required
         />
 
-        <label htmlFor="profilePicture">Profile picture</label>
+        {/* <label htmlFor="profilePicture">Profile picture</label>
         <input
           id="profilePicture"
           type="file"
@@ -66,7 +77,31 @@ const SignUp = (props) => {
           placeholder="Profile picture"
           value={profilePicture}
           onChange={handleProfilePictureChange}
-        />
+        /> */}
+
+        {profilePicture && (
+          <img
+            src={profilePicture}
+            alt={name}
+            className="w-1/2 rounded-md mt-4"
+          />
+        )}
+
+        <IKContext
+          // Required for image displayed
+          urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL}
+          // Required for image upload
+          publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
+          authenticationEndpoint={
+            process.env.REACT_APP_API_BASE_URL +
+            process.env.REACT_APP_AUTHENTICATION_ENDPOINT
+          }
+        >
+          <IKUpload
+            onError={onProfileUploadError}
+            onSuccess={onProfileUploadSuccess}
+          />
+        </IKContext>
 
         <label htmlFor="pronoun">Pronoun</label>
         <select

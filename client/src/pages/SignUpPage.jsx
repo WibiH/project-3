@@ -6,7 +6,7 @@ import { IKContext, IKUpload } from "imagekitio-react";
 
 const SignUp = (props) => {
   const [name, setName] = useState("");
-  const [profilePicture, setProfilePicture] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
   const [pronoun, setPronoun] = useState("he/him/his");
   const [status, setStatus] = useState("user");
   const [email, setEmail] = useState("");
@@ -16,10 +16,10 @@ const SignUp = (props) => {
   const navigate = useNavigate();
 
   const handleNameChange = (event) => setName(event.target.value);
-  const handleProfilePictureChange = (event) => {
-    console.log(event.target.value);
-    setProfilePicture(event.target.value);
-  };
+  // const handleProfilePictureChange = (event) => {
+  //   console.log(event.target.value);
+  //   setProfilePicture(event.target.value);
+  // };
   const handlePronounChange = (event) => setPronoun(event.target.value);
   const handleStatusChange = (event) => setStatus(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
@@ -36,6 +36,7 @@ const SignUp = (props) => {
         setUser(user);
         setIsLoading(false);
         setAuthToken(authToken);
+        console.log(user);
         navigate("/");
       })
       .catch((error) => {

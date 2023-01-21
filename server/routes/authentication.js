@@ -24,8 +24,8 @@ router.post('/signup', (req, res, next) => {
   })
     .then((createdUser) => {
       console.log('This is the createdUser', createdUser);
-      const { email, name, _id } = createdUser;
-      const user = { email, name, _id };
+      const { email, name, _id, profilePicture } = createdUser;
+      const user = { email, name, _id, profilePicture };
       const authToken = encodeJwt(user);
       res.json({
         user: user,

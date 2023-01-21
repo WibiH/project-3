@@ -22,14 +22,12 @@ const EventList = ({ events }) => {
                   alt={eachEvent.name}
                 />
                 <div className="px-6 py-4">
-                  <h4 className="mb-3 text-base font-semibold text-justify tracking-tight text-gray-900">
+                  <h4 className="mb-3 text-base font-semibold text-justify tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                     {eachEvent.eventName}
                   </h4>
                   <p className="mb-2 text-sm leading-normal text-justify text-gray-700">
                     Date: {eachEvent.dateTime.split("T")[0].toString()}
-                  </p>
-                  <p className="mb-2 text-sm leading-normal text-justify text-gray-700">
-                    Time:{" "}
+                    <br /> Time:{" "}
                     {eachEvent.dateTime.split("T")[1].split(":", 2).join(":")}
                   </p>
                   <p className="mb-2 text-sm leading-normal text-justify text-gray-500">

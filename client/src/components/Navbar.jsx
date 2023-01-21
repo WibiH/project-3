@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/authentication";
 
 const Navbar = () => {
   const { user, setUser, eraseToken } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     setUser(null);
     eraseToken();
+    navigate(`/`);
   };
   return (
     <nav className="w-full text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
@@ -29,7 +32,7 @@ const Navbar = () => {
               <Link to="/events/create">Create Events</Link>
             </li>
             <li className="pr-3 hover:underline underline-offset-8">
-              <Link to={`/profile/${user._id}`}>{user.name}´s Profile</Link>
+              <Link to={`/profile/${user._id}`}>{user.name}'s Profile</Link>
             </li>
             <button
               onClick={handleSignOut}

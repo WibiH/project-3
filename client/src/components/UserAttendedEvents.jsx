@@ -3,15 +3,17 @@ import EventCard from "./EventCard";
 
 const UserAttendedEvents = ({ attendances }) => {
   return (
-    <div>
+    <div className="flex gap-4 flex-wrap p-5 justify-center">
       {attendances.length &&
         attendances.map((attendance) => {
           return (
             attendance && (
-              <EventCard
-                key={attendance._id}
-                event={attendance.attendingEvent}
-              />
+              <div className=" flex-row">
+                <EventCard
+                  key={attendance._id}
+                  event={attendance.attendingEvent}
+                />
+              </div>
             )
           );
         })}

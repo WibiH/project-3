@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/authentication";
 import { signup } from "../services/authentication";
+import { IKContext, IKUpload } from "imagekitio-react";
 
 const SignUp = (props) => {
   const [name, setName] = useState("");
-  const [profilePicture, setProfilePicture] = useState("");
+  const [profilePicture, setProfilePicture] = useState(null);
   const [pronoun, setPronoun] = useState("he/him/his");
   const [status, setStatus] = useState("user");
   const [email, setEmail] = useState("");
@@ -15,10 +16,10 @@ const SignUp = (props) => {
   const navigate = useNavigate();
 
   const handleNameChange = (event) => setName(event.target.value);
-  const handleProfilePictureChange = (event) => {
-    console.log(event.target.value);
-    setProfilePicture(event.target.value);
-  };
+  // const handleProfilePictureChange = (event) => {
+  //   console.log(event.target.value);
+  //   setProfilePicture(event.target.value);
+  // };
   const handlePronounChange = (event) => setPronoun(event.target.value);
   const handleStatusChange = (event) => setStatus(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
@@ -35,6 +36,7 @@ const SignUp = (props) => {
         setUser(user);
         setIsLoading(false);
         setAuthToken(authToken);
+        console.log(user);
         navigate("/");
       })
       .catch((error) => {
@@ -44,12 +46,23 @@ const SignUp = (props) => {
       });
   };
 
+  const onProfileUploadError = (error) => {
+    console.log("onProfileUploadError", error);
+  };
+
+  const onProfileUploadSuccess = (value) => {
+    console.log("onProfileUploadSuccess", value);
+    const { url } = value;
+    setProfilePicture(url);
+  };
+
   return (
     <div>
       <form onSubmit={handleFormSubmit} className="flex flex-col m-8">
         <label htmlFor="name">Name</label>
         <input
           id="name"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="text"
           name="name"
           placeholder="Name"
@@ -58,19 +71,49 @@ const SignUp = (props) => {
           required
         />
 
-        <label htmlFor="profilePicture">Profile picture</label>
-        <input
+        <label htmlFor="profilePicture" className="mt-3">
+          Profile picture
+        </label>
+        {/* <input
           id="profilePicture"
+          className: 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white focus:outline-none'
           type="file"
           name="profilePicture"
           placeholder="Profile picture"
           value={profilePicture}
           onChange={handleProfilePictureChange}
-        />
+        /> */}
 
-        <label htmlFor="pronoun">Pronoun</label>
+        {profilePicture && (
+          <img
+            src={profilePicture}
+            alt={name}
+            className="w-1/2 rounded-md mt-4"
+          />
+        )}
+
+        <IKContext
+          // Required for image displayed
+          urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL}
+          // Required for image upload
+          publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
+          authenticationEndpoint={
+            process.env.REACT_APP_API_BASE_URL +
+            process.env.REACT_APP_AUTHENTICATION_ENDPOINT
+          }
+        >
+          <IKUpload
+            onError={onProfileUploadError}
+            onSuccess={onProfileUploadSuccess}
+          />
+        </IKContext>
+
+        <label htmlFor="pronoun" className="mt-3">
+          Pronoun
+        </label>
         <select
           id="pronoun"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="text"
           name="pronoun"
           placeholder="Pronoun"
@@ -84,10 +127,11 @@ const SignUp = (props) => {
           <option value="other">other</option>
         </select>
 
-        <div>
+        <div className="mt-3">
           <input
-            style={{ color: "darkorchid" }}
+            style={{ color: "mediumpurple" }}
             id="status-user"
+            className="w-4 h-4 border-gray-300 focus:ring-purple-500 focus:border-purple-500"
             type="radio"
             name="status-user"
             checked={status === "user"}
@@ -97,8 +141,9 @@ const SignUp = (props) => {
           <label htmlFor="status-user">User</label>
 
           <input
-            style={{ color: "darkorchid" }}
+            style={{ color: "mediumpurple" }}
             id="status-admin"
+            className="w-4 h-4 border-gray-300 focus:ring-purple-500 focus:border-purple-500"
             type="radio"
             name="status-admin"
             checked={status === "admin"}
@@ -108,9 +153,12 @@ const SignUp = (props) => {
           <label htmlFor="status-admin">Admin</label>
         </div>
 
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email" className="mt-3">
+          Email
+        </label>
         <input
           id="email"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="text"
           name="email"
           placeholder="Email"
@@ -119,9 +167,12 @@ const SignUp = (props) => {
           required
         />
 
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" className="mt-3">
+          Password
+        </label>
         <input
           id="password"
+          className="bg-white border rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"
           type="password"
           name="password"
           placeholder="Password"
@@ -135,12 +186,7 @@ const SignUp = (props) => {
             <span className="text-orange-700">{errorMessage}</span>
           </div>
         )}
-        <button
-          className="btn-rainbow mx-auto;
-    mx-auto"
-        >
-          Sign Up
-        </button>
+        <button className="btn-rainbow mx-auto mt-9">Sign Up</button>
       </form>
     </div>
   );

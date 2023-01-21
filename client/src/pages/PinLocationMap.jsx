@@ -78,7 +78,8 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Linden 2, 10117 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/German+Historical+Museum/@52.5181422,13.3959987,18.22z/data=!4m5!3m4!1s0x47a851dc1ef8939d:0xf9fb901171a947c3!8m2!3d52.5181519!4d13.3969499",
-      picture: GermanHistoricalMuseum_photo,
+      picture:
+        "https://th.bing.com/th/id/R.cba2274dd746860108aaae1e5838f44e?rik=FBXGkznV%2bgLEcg&pid=ImgRaw&r=0",
     });
   };
 
@@ -92,7 +93,8 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Linden 7, 10117 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/Berlin+State+Opera/@52.5171049,13.3936087,18z/data=!3m1!4b1!4m5!3m4!1s0x47a851db88d595c9:0x81197b5a040d2c71!8m2!3d52.5171045!4d13.3947031",
-      picture: BerlinStateOpera_photo,
+      picture:
+        "https://th.bing.com/th/id/R.b9b549dd76a26173c79aa4db758c4714?rik=aLJ26%2bi9DhYCcA&pid=ImgRaw&r=0",
     });
   };
 
@@ -106,7 +108,8 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Linden & Friedrichstraße, 10117 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/Unter+den+Linden/@52.5170229,13.3868555,16.95z/data=!3m1!4b1!4m5!3m4!1s0x47a851c4b21fcf91:0x7ad028e73329e35f!8m2!3d52.5170229!4d13.3890442",
-      picture: Linden_Friedrichstraße_photo,
+      picture:
+        "https://th.bing.com/th/id/R.5fb9f352612d97ce28a4ef6a84d47771?rik=H4GELD8KCrGK6g&pid=ImgRaw&r=0",
     });
   };
 
@@ -120,7 +123,8 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Platz der Republik 1, 11011 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/Reichstag+Building/@52.5186202,13.3739985,17z/data=!3m1!4b1!4m5!3m4!1s0x47a851c741ee506d:0x641b52d3abf17de5!8m2!3d52.5186202!4d13.3761872",
-      picture: Reichstag_Building_photo,
+      picture:
+        "https://th.bing.com/th/id/OIP.YuslP2kqtLx2wSXkvm4gmwHaE6?pid=ImgDet&rs=1",
     });
   };
 
@@ -134,7 +138,8 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "John-Foster-Dulles-Allee 10, 10557 Berlin, Germany",
       maps: "https://www.google.co.uk/maps/place/German+Historical+Museum/@52.5181422,13.3959987,18.22z/data=!4m5!3m4!1s0x47a851dc1ef8939d:0xf9fb901171a947c3!8m2!3d52.5181519!4d13.3969499",
-      picture: House_of_world_cultures_photo,
+      picture:
+        "https://th.bing.com/th/id/OIP.uKD2J00SXsvQS7BC2jMVMgHaFj?pid=ImgDet&rs=1",
     });
   };
 
@@ -148,7 +153,8 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "10785 Berlin, Germany, Germany",
       maps: "https://www.google.co.uk/maps/place/L%C3%BCtzowpl.,+10785+Berlin,+Germany/@52.5049229,13.3495333,17z/data=!4m13!1m7!3m6!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!2sL%C3%BCtzowpl.,+10785+Berlin,+Germany!3b1!8m2!3d52.5049229!4d13.351722!3m4!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!8m2!3d52.5049229!4d13.351722",
-      picture: Lutzowplatz_photo,
+      picture:
+        "https://d2exd72xrrp1s7.cloudfront.net/www/000/1k1/fi/fig9kycg6rl3yrf12yw7dqgi23l0nads-uhi762654/0?width=768&height=576&crop=true",
     });
   };
 
@@ -156,13 +162,14 @@ const PinLocationMap = () => {
     changer = true;
 
     setInfo({
-      eventName: "Großer_Stern",
+      eventName: "Großer Stern",
       description:
         "From Brandenburg Gate, the broad boulevard Straße des 17. Juni leads west through the centre of Tiergarten Park. If you stroll down it for around twenty minutes, you reach a major intersection – a vast roundabout known as the Großer Stern. And right at the heart of the roundabout, you can find the Victory Column.",
       createdUser: "Admin user",
       location: "10785 Berlin, Germany, Germany",
       maps: "https://www.google.co.uk/maps/place/L%C3%BCtzowpl.,+10785+Berlin,+Germany/@52.5049229,13.3495333,17z/data=!4m13!1m7!3m6!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!2sL%C3%BCtzowpl.,+10785+Berlin,+Germany!3b1!8m2!3d52.5049229!4d13.351722!3m4!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!8m2!3d52.5049229!4d13.351722",
-      picture: Großer_Stern_photo,
+      picture:
+        "https://th.bing.com/th/id/OIP.QhluwcFzatCIn7BDe6L3iAHaEK?pid=ImgDet&rs=1",
     });
   };
 
@@ -224,7 +231,6 @@ const PinLocationMap = () => {
           <div className="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
             <img
               className="object-cover rounded-t-lg h-full md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-              src="/docs/images/blog/image-4.jpg"
               src={info.picture}
               alt={info.eventName}
             />

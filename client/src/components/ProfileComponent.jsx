@@ -6,7 +6,10 @@ const ProfileComponent = ({ user }) => {
     <div class="flex items-center justify-center space-x-4 my-6">
       <img
         className="w-10 h-10 rounded-full"
-        src={user.profilePicture}
+        src={
+          user.profilePicture ||
+          "https://cdn-icons-png.flaticon.com/512/1251/1251840.png"
+        }
         alt={user.name}
       />
       <div class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500">

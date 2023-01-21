@@ -178,9 +178,9 @@ const PinLocationMap = () => {
   });
 
   return (
-    <>
+    <div className="flex flex-col justify-center">
       {isLoaded && (
-        <div>
+        <div className="ml-32">
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
@@ -226,11 +226,11 @@ const PinLocationMap = () => {
         </div>
       )}
 
-      <div>
+      <div className="mx-auto mt-4">
         {changer && (
           <div className="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
             <img
-              className="object-cover rounded-t-lg h-full md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+              className="object-cover rounded-t-lg h-auto w-48 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
               src={info.picture}
               alt={info.eventName}
             />
@@ -251,8 +251,7 @@ const PinLocationMap = () => {
               <h1>
                 {" "}
                 <a
-                  className="btn-rainbow mx-auto;
-   mx-auto"
+                  className="btn-rainbow mx-auto"
                   href={info.maps}
                   target="_blank"
                 >
@@ -263,7 +262,7 @@ const PinLocationMap = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

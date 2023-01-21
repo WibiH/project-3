@@ -5,6 +5,13 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import { useState } from "react";
+import GermanHistoricalMuseum_photo from "./../photos/GermanHistoricalMuseum.jpeg";
+import BerlinStateOpera_photo from "./../photos/BerlinStateOpera.jpeg";
+import Linden_Friedrichstraße_photo from "./../photos/Linden_Friedrichstraße.jpeg";
+import Reichstag_Building_photo from "./../photos/Reichstag_Building.jpeg";
+import House_of_world_cultures_photo from "./../photos/House_of_world_cultures.jpeg";
+import Großer_Stern_photo from "./../photos/Großer_Stern.jpeg";
+import Lutzowplatz_photo from "./../photos/0.webp";
 
 const containerStyle = {
   width: "90%",
@@ -40,6 +47,16 @@ const House_of_world_cultures = {
   lat: 52.51867513567039,
   lng: 13.364424369180306,
 };
+
+const Lutzowplatz = {
+  lat: 52.50510573539335,
+  lng: 13.351689811966164,
+};
+
+const Großer_Stern = {
+  lat: 52.5146220751464,
+  lng: 13.350137713815943,
+};
 let changer = false;
 
 const PinLocationMap = () => {
@@ -61,6 +78,7 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Linden 2, 10117 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/German+Historical+Museum/@52.5181422,13.3959987,18.22z/data=!4m5!3m4!1s0x47a851dc1ef8939d:0xf9fb901171a947c3!8m2!3d52.5181519!4d13.3969499",
+      picture: GermanHistoricalMuseum_photo,
     });
   };
 
@@ -74,6 +92,7 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Linden 7, 10117 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/Berlin+State+Opera/@52.5171049,13.3936087,18z/data=!3m1!4b1!4m5!3m4!1s0x47a851db88d595c9:0x81197b5a040d2c71!8m2!3d52.5171045!4d13.3947031",
+      picture: BerlinStateOpera_photo,
     });
   };
 
@@ -87,6 +106,7 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Linden & Friedrichstraße, 10117 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/Unter+den+Linden/@52.5170229,13.3868555,16.95z/data=!3m1!4b1!4m5!3m4!1s0x47a851c4b21fcf91:0x7ad028e73329e35f!8m2!3d52.5170229!4d13.3890442",
+      picture: Linden_Friedrichstraße_photo,
     });
   };
 
@@ -100,6 +120,7 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "Platz der Republik 1, 11011 Berlin, Alemania",
       maps: "https://www.google.co.uk/maps/place/Reichstag+Building/@52.5186202,13.3739985,17z/data=!3m1!4b1!4m5!3m4!1s0x47a851c741ee506d:0x641b52d3abf17de5!8m2!3d52.5186202!4d13.3761872",
+      picture: Reichstag_Building_photo,
     });
   };
 
@@ -113,71 +134,129 @@ const PinLocationMap = () => {
       createdUser: "Admin user",
       location: "John-Foster-Dulles-Allee 10, 10557 Berlin, Germany",
       maps: "https://www.google.co.uk/maps/place/German+Historical+Museum/@52.5181422,13.3959987,18.22z/data=!4m5!3m4!1s0x47a851dc1ef8939d:0xf9fb901171a947c3!8m2!3d52.5181519!4d13.3969499",
+      picture: House_of_world_cultures_photo,
+    });
+  };
+
+  const handleClickPinLutzowplatz = () => {
+    changer = true;
+
+    setInfo({
+      eventName: "Lutzowplatz",
+      description:
+        "One of Berlin's main cultural centres is housed in a 19th-century building on Lützowplatz. A venue for contemporary art, the House hosts works by both German and international artists. Many different genres of art are exhibited, from photography and painting to cutting-edge conceptual art.",
+      createdUser: "Admin user",
+      location: "10785 Berlin, Germany, Germany",
+      maps: "https://www.google.co.uk/maps/place/L%C3%BCtzowpl.,+10785+Berlin,+Germany/@52.5049229,13.3495333,17z/data=!4m13!1m7!3m6!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!2sL%C3%BCtzowpl.,+10785+Berlin,+Germany!3b1!8m2!3d52.5049229!4d13.351722!3m4!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!8m2!3d52.5049229!4d13.351722",
+      picture: Lutzowplatz_photo,
+    });
+  };
+
+  const handleClickPinGroßer_Stern = () => {
+    changer = true;
+
+    setInfo({
+      eventName: "Großer_Stern",
+      description:
+        "From Brandenburg Gate, the broad boulevard Straße des 17. Juni leads west through the centre of Tiergarten Park. If you stroll down it for around twenty minutes, you reach a major intersection – a vast roundabout known as the Großer Stern. And right at the heart of the roundabout, you can find the Victory Column.",
+      createdUser: "Admin user",
+      location: "10785 Berlin, Germany, Germany",
+      maps: "https://www.google.co.uk/maps/place/L%C3%BCtzowpl.,+10785+Berlin,+Germany/@52.5049229,13.3495333,17z/data=!4m13!1m7!3m6!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!2sL%C3%BCtzowpl.,+10785+Berlin,+Germany!3b1!8m2!3d52.5049229!4d13.351722!3m4!1s0x47a85052a77de7d1:0x3d04ae8c8f6d8ff6!8m2!3d52.5049229!4d13.351722",
+      picture: Großer_Stern_photo,
     });
   };
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyAfO7IMqMbLx3GaSF3LD3cDkz_rRfc-YYc",
   });
 
   return (
     <>
       {isLoaded && (
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={13}>
-          {/* Child components, such as markers, info windows, etc. */}
+        <div>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={13}
+          >
+            {/* Child components, such as markers, info windows, etc. */}
 
-          <MarkerF
-            position={GermanHistoricalMuseum}
-            onClick={handleClickPinGermanMuseum}
-          />
+            <MarkerF
+              position={GermanHistoricalMuseum}
+              onClick={handleClickPinGermanMuseum}
+            />
 
-          <MarkerF
-            position={BerlinStateOpera}
-            onClick={handleClickPinBerlinStateOpera}
-          />
+            <MarkerF
+              position={BerlinStateOpera}
+              onClick={handleClickPinBerlinStateOpera}
+            />
 
-          <MarkerF
-            position={Linden_Friedrichstraße}
-            onClick={handleClickPinLinden_Friedrichstraße}
-          />
+            <MarkerF
+              position={Linden_Friedrichstraße}
+              onClick={handleClickPinLinden_Friedrichstraße}
+            />
 
-          <MarkerF
-            position={Reichstag_Building}
-            onClick={handleClickPinReichstag_Building}
-          />
+            <MarkerF
+              position={Reichstag_Building}
+              onClick={handleClickPinReichstag_Building}
+            />
 
-          <MarkerF
-            position={House_of_world_cultures}
-            onClick={handleClickPinHouse_of_world_cultures}
-          />
-        </GoogleMap>
+            <MarkerF
+              position={House_of_world_cultures}
+              onClick={handleClickPinHouse_of_world_cultures}
+            />
+
+            <MarkerF
+              position={Lutzowplatz}
+              onClick={handleClickPinLutzowplatz}
+            />
+
+            <MarkerF
+              position={Großer_Stern}
+              onClick={handleClickPinGroßer_Stern}
+            />
+          </GoogleMap>
+        </div>
       )}
-      {changer && (
-        <>
-          <h1>
-            {" "}
-            <strong>Place Name:</strong> {info.eventName}
-          </h1>
-          <h3>
-            {" "}
-            <strong>Description:</strong> {info.description}
-          </h3>
-          <h3>
-            {" "}
-            <strong>Created by: </strong> {info.createdUser}
-          </h3>
-          <h3>
-            {" "}
-            <strong>Address: </strong> <i>{info.location}</i>
-          </h3>
-          <h1>
-            {" "}
-            <a href={info.maps} target="_blank">
-              Take me there
-            </a>{" "}
-          </h1>
-        </>
-      )}
+
+      <div>
+        {changer && (
+          <div className="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl  dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+            <img
+              className="object-cover rounded-t-lg h-full md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+              src="/docs/images/blog/image-4.jpg"
+              src={info.picture}
+              alt={info.eventName}
+            />
+            <span class="flex flex-col justify-between p-4 leading-normal">
+              <h1 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {" "}
+                <strong></strong> {info.eventName}
+              </h1>
+              <h3 class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {" "}
+                <strong>Description:</strong> {info.description}
+              </h3>
+
+              <h3 class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {" "}
+                <strong>Address: </strong> <i>{info.location}</i>
+              </h3>
+              <h1>
+                {" "}
+                <a
+                  className="btn-rainbow mx-auto;
+   mx-auto"
+                  href={info.maps}
+                  target="_blank"
+                >
+                  Take me there
+                </a>{" "}
+              </h1>
+            </span>
+          </div>
+        )}
+      </div>
     </>
   );
 };

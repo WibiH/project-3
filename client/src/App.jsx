@@ -55,7 +55,9 @@ function App() {
           <Route path="/tour" element={<Tour />} />
         </Routes>
       </div>
-      <Footer className="footer--pin" />
+      <div>
+        <Footer className="footer--pin" />
+      </div>
     </div>
   );
 }

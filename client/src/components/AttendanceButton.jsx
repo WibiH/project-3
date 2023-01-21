@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { attendanceAdd, attendanceDelete } from "../services/attendances";
 import { useAuthContext } from "../context/authentication";
 import { useAttendanceContext } from "../context/attendances";
 
 const AttendanceButton = ({ event }) => {
   const { attendances, setAttendances } = useAttendanceContext();
-  const isAttending = attendances.some(
-    (eachAttendance) => event._id === eachAttendance.attendingEvent._id
-  );
+  const isAttending =
+    attendances &&
+    attendances.some(
+      (eachAttendance) => event._id === eachAttendance.attendingEvent._id
+    );
 
   const { authToken, user } = useAuthContext();
 

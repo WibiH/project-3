@@ -28,18 +28,16 @@ const Profile = () => {
   }, [id, authToken]);
 
   return (
-    <div className="flex flex-col justify-center align-contnet mb-36">
+    <div>
       <div>{user && <ProfileComponent user={user} />}</div>
-      <div className="w-2/3 max-h-64 m-auto">
+      <div>
         <h1>Your favorite events</h1>
       </div>
       <div>
-        <div className="flex gap-4 flex-wrap p-5 justify-center">
-          <div className=" flex-row">
-            {attendances.length && (
-              <UserAttendedEvents attendances={attendances} />
-            )}
-          </div>
+        <div>
+          {attendances.length && (
+            <UserAttendedEvents attendances={attendances} />
+          )}
         </div>
       </div>
     </div>

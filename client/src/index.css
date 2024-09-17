@@ -1,13 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  /* min-height: 100vh; */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.content-container {
+  min-height: calc(100vh - 226px);
+}
+
+.footer--pin {
+  margin-top: auto;
+  /* position: relative;
+  left: 0;
+  bottom: 0; */
+}
+
+@layer components {
+  .btn-primary {
+    @apply mt-2 mb-2 w-full inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out;
+  }
+  .btn-rainbow {
+    @apply mt-2 mb-2 w-full inline-block px-6 py-2.5 text-white font-medium text-xs leading-normal uppercase rounded shadow-md bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2;
+  }
+  .file-picker-primary {
+    @apply block w-full text-sm text-slate-500 file:mr-4 file:my-4 file:py-2 file:px-4 file:rounded file:border-0 file:font-bold file:font-semibold file:bg-blue-500 file:text-white hover:file:bg-blue-100;
+  }
 }

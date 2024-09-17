@@ -15,6 +15,9 @@ const mongoose = require('mongoose');
 const authenticationDeserializer = require('./middleware/authentication-deserializer.js');
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
+const eventsRouter = require('./routes/event');
+const profileRouter = require('./routes/profile');
+// const tourRouter = require('./routes/tour')
 
 const app = express();
 
@@ -24,8 +27,7 @@ app.use(
   cors({
     ...(process.env.CLIENT_APP_ORIGINS && {
       origin: process.env.CLIENT_APP_ORIGINS.split(',')
-    }),
-    credentials: true
+    })
   })
 );
 app.use(express.json());
@@ -52,6 +54,9 @@ app.use(authenticationDeserializer);
 
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/events', eventsRouter);
+app.use('/profile', profileRouter);
+// app.use('/tour', tourRouter)
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
@@ -62,6 +67,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({ type: 'error', error: { message: error.message } });
+  console.log(error);
 });
 
 const { NODE_ENV, PORT, MONGODB_URI } = process.env;

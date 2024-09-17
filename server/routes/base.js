@@ -2,14 +2,31 @@
 
 const express = require('express');
 const router = express.Router();
-const routeGuard = require('./../middleware/route-guard');
+const routeGuard = require('../middleware/routeGuard');
+const eventsRouter = express.Router();
+const Event = require('../models/event');
 
-router.get('/', (req, res, next) => {
-  res.json({ type: 'success', data: { title: 'Hello World' } });
+var ImageKit = require('imagekit');
+
+var imagekit = new ImageKit({
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+  urlEndpoint: process.env.IMAGEKIT_URL
 });
 
-router.get('/private', routeGuard, (req, res, next) => {
-  res.json({});
+router.get('/imagekit-authentication', (req, res, next) => {
+  var authenticationParameters = imagekit.getAuthenticationParameters();
+  res.json(authenticationParameters);
+});
+
+// const upload = require('./upload');
+
+// - GET /events -> Fetch all events
+eventsRouter.get('/', (req, res, next) => {
+  Event.find()
+    .populate('createdUser')
+    .then((events) => res.json({ events }))
+    .catch((error) => next(error));
 });
 
 module.exports = router;
